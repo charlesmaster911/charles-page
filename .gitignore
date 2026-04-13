@@ -1,0 +1,13 @@
+# 스크린샷 및 참고자료
+screencapture-*.png
+*.pdf
+사업피칭댁.pdf
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 편집기
+.vscode/
+.idea/
