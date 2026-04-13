@@ -229,9 +229,16 @@ var thoughtsData = [];
 function renderThoughts(thoughts) {
   var list = document.getElementById('thoughtsList');
   if (!list) return;
+  var loading = document.getElementById('thoughtsLoading');
+  if (loading) loading.style.display = 'none';
   var isEn = document.documentElement.getAttribute('lang') === 'en';
   list.innerHTML = '';
-  thoughts.forEach(function(t, i) {
+
+  // 메인 페이지는 5개만, thoughts.html은 전부
+  var isFullPage = window.__THOUGHTS_PAGE__ === true;
+  var items = isFullPage ? thoughts : thoughts.slice(0, 5);
+
+  items.forEach(function(t, i) {
     var title = isEn ? (t.title_en || t.title_ko) : t.title_ko;
     var body = isEn ? (t.en || t.ko) : t.ko;
     var item = document.createElement('div');

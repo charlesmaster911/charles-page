@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>단상 / Fragments — Charles Chang</title>
+  <meta name="description" content="생각이 스치면, 기록한다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=21" />
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="index.html" class="site-name">
+      Charles Chang
+      <em>Relationship Alchemist</em>
+    </a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="index.html" class="thoughts-back"><span class="ko">← 홈</span><span class="en">← Home</span></a>
+      <div class="lang-toggle">
+        <button class="lang-btn" onclick="setLang('ko')">KO</button>
+        <span class="lang-sep">·</span>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="thoughts-page">
+  <div class="container">
+    <div class="thoughts-page-header">
+      <p class="section-label"><span class="ko">단상</span><span class="en">Fragments</span></p>
+      <h1 class="thoughts-page-title">
+        <span class="ko">생각이 스치면, 기록한다.</span>
+        <span class="en">When a thought passes, I write it down.</span>
+      </h1>
+      <p class="thoughts-page-desc">
+        <span class="ko">완성된 글이 아니어도 된다.<br>스치는 생각, 관찰, 질문.</span>
+        <span class="en">It doesn't have to be a finished piece.<br>Passing thoughts, observations, questions.</span>
+      </p>
+    </div>
+    <div class="thoughts-list" id="thoughtsList"></div>
+    <div id="thoughtsLoading" class="thoughts-loading">
+      <span class="ko">불러오는 중...</span><span class="en">Loading...</span>
+    </div>
+  </div>
+</main>
+
+<footer style="padding:40px 0;border-top:1px solid var(--faint);text-align:center;">
+  <p class="footer-copy">© 2026 Charles Chang · <a href="index.html" style="color:var(--accent);">charlespage.onrender.com</a></p>
+</footer>
+
+<script src="script.js?v=9"></script>
+<script>
+  // 전체 단상 페이지 — 모두 표시
+  window.__THOUGHTS_PAGE__ = true;
+</script>
+</body>
+</html>
