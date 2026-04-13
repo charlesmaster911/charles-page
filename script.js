@@ -223,9 +223,53 @@ document.querySelectorAll('.newsletter-inner').forEach(el => {
   revealObs.observe(el);
 });
 
+// ===== 단상 로딩 =====
+(function() {
+  var list = document.getElementById('thoughtsList');
+  if (!list) return;
+  var isEn = document.documentElement.getAttribute('lang') === 'en';
+
+  fetch('thoughts.json')
+    .then(function(r) { return r.json(); })
+    .then(function(thoughts) {
+      thoughts.forEach(function(t, i) {
+        var item = document.createElement('div');
+        item.className = 'thought-item reveal';
+        item.dataset.delay = i * 100;
+        var text = isEn ? (t.en || t.ko) : t.ko;
+        item.innerHTML =
+          '<span class="thought-date">' + t.date + '</span>' +
+          '<p class="thought-text">' + text.replace(/\n/g, '<br>') + '</p>';
+        list.appendChild(item);
+        revealObs.observe(item);
+      });
+    });
+
+  document.addEventListener('langChange', function(e) {
+    list.querySelectorAll('.thought-item').forEach(function(item, i) {
+      var t = null;
+      fetch('thoughts.json').then(function(r) { return r.json(); }).then(function(thoughts) {
+        var lang = document.documentElement.getAttribute('lang');
+        list.querySelectorAll('.thought-text').forEach(function(p, i) {
+          var t = thoughts[i];
+          if (!t) return;
+          p.innerHTML = (lang === 'en' ? (t.en || t.ko) : t.ko).replace(/\n/g, '<br>');
+        });
+      });
+    });
+  });
+})();
+
 // ===== 활성 네비 하이라이트 =====
 const navLinks = document.querySelectorAll('nav a[href^="#"]');
-const sectionIds = ['about', 'brands', 'mastermind', 'newsletter'];
+// 앱 카드 스크롤 리빌
+document.querySelectorAll('.app-card').forEach(function(el, i) {
+  el.classList.add('reveal');
+  el.dataset.delay = i * 120;
+  revealObs.observe(el);
+});
+
+const sectionIds = ['about', 'brands', 'mastermind', 'playground', 'thoughts', 'newsletter'];
 
 const navObs = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
