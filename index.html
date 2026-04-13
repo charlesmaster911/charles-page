@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=19" />
+  <link rel="stylesheet" href="style.css?v=20" />
 </head>
 <body>
 
@@ -411,11 +411,24 @@ This is my third life.</span>
       <span class="ko">생각이 스치면, 기록한다.</span>
       <span class="en">When a thought passes, I write it down.</span>
     </h2>
-    <div class="thoughts-list" id="thoughtsList">
-      <!-- JS로 렌더링 -->
-    </div>
+    <div class="thoughts-list" id="thoughtsList"></div>
   </div>
 </section>
+
+<!-- 단상 쓰기 패널 -->
+<div id="thoughtWritePanel" class="write-panel">
+  <div class="write-panel-inner">
+    <button class="write-panel-close" onclick="closeWritePanel()">&times;</button>
+    <p class="modal-label">단상 쓰기</p>
+    <form class="write-form" onsubmit="submitThought(event)">
+      <input type="text" id="wTitleKo" placeholder="제목 (한국어)" required />
+      <input type="text" id="wTitleEn" placeholder="Title (English)" />
+      <textarea id="wBodyKo" placeholder="내용 (한국어)" rows="5" required></textarea>
+      <textarea id="wBodyEn" placeholder="Content (English)" rows="5"></textarea>
+      <button type="submit" class="modal-submit">올리기</button>
+    </form>
+  </div>
+</div>
 
 <!-- NEWSLETTER -->
 <section id="newsletter">

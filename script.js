@@ -223,42 +223,109 @@ document.querySelectorAll('.newsletter-inner').forEach(el => {
   revealObs.observe(el);
 });
 
-// ===== 단상 로딩 =====
-(function() {
+// ===== 단상 로딩 & 아코디언 =====
+var thoughtsData = [];
+
+function renderThoughts(thoughts) {
   var list = document.getElementById('thoughtsList');
   if (!list) return;
   var isEn = document.documentElement.getAttribute('lang') === 'en';
+  list.innerHTML = '';
+  thoughts.forEach(function(t, i) {
+    var title = isEn ? (t.title_en || t.title_ko) : t.title_ko;
+    var body = isEn ? (t.en || t.ko) : t.ko;
+    var item = document.createElement('div');
+    item.className = 'thought-item reveal';
+    item.dataset.delay = i * 80;
+    item.innerHTML =
+      '<div class="thought-header" onclick="toggleThought(this.parentElement)">' +
+        '<span class="thought-date">' + t.date + '</span>' +
+        '<p class="thought-title">' + title + '</p>' +
+        '<span class="thought-arrow">↓</span>' +
+      '</div>' +
+      '<div class="thought-body">' +
+        '<p class="thought-content">' + body.replace(/\n/g, '<br>') + '</p>' +
+      '</div>';
+    list.appendChild(item);
+    revealObs.observe(item);
+  });
+}
 
+function toggleThought(item) {
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.thought-item.open').forEach(function(el) { el.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+
+(function() {
   fetch('thoughts.json')
     .then(function(r) { return r.json(); })
     .then(function(thoughts) {
-      thoughts.forEach(function(t, i) {
-        var item = document.createElement('div');
-        item.className = 'thought-item reveal';
-        item.dataset.delay = i * 100;
-        var text = isEn ? (t.en || t.ko) : t.ko;
-        item.innerHTML =
-          '<span class="thought-date">' + t.date + '</span>' +
-          '<p class="thought-text">' + text.replace(/\n/g, '<br>') + '</p>';
-        list.appendChild(item);
-        revealObs.observe(item);
-      });
+      thoughtsData = thoughts;
+      renderThoughts(thoughts);
     });
-
-  document.addEventListener('langChange', function(e) {
-    list.querySelectorAll('.thought-item').forEach(function(item, i) {
-      var t = null;
-      fetch('thoughts.json').then(function(r) { return r.json(); }).then(function(thoughts) {
-        var lang = document.documentElement.getAttribute('lang');
-        list.querySelectorAll('.thought-text').forEach(function(p, i) {
-          var t = thoughts[i];
-          if (!t) return;
-          p.innerHTML = (lang === 'en' ? (t.en || t.ko) : t.ko).replace(/\n/g, '<br>');
-        });
-      });
-    });
-  });
 })();
+
+// ===== 단상 쓰기 패널 (제목 5번 클릭) =====
+var writeClickCount = 0;
+var writeClickTimer = null;
+document.addEventListener('DOMContentLoaded', function() {
+  var title = document.querySelector('.thoughts-title');
+  if (title) {
+    title.addEventListener('click', function() {
+      writeClickCount++;
+      clearTimeout(writeClickTimer);
+      writeClickTimer = setTimeout(function() { writeClickCount = 0; }, 1500);
+      if (writeClickCount >= 5) {
+        writeClickCount = 0;
+        openWritePanel();
+      }
+    });
+  }
+});
+
+function openWritePanel() {
+  document.getElementById('thoughtWritePanel').classList.add('panel-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeWritePanel() {
+  document.getElementById('thoughtWritePanel').classList.remove('panel-open');
+  document.body.style.overflow = '';
+}
+
+function submitThought(e) {
+  e.preventDefault();
+  var btn = e.target.querySelector('button[type="submit"]');
+  var today = new Date();
+  var date = today.getFullYear() + '.' +
+    String(today.getMonth()+1).padStart(2,'0') + '.' +
+    String(today.getDate()).padStart(2,'0');
+  var params = new URLSearchParams({
+    type: 'thought',
+    date: date,
+    title_ko: document.getElementById('wTitleKo').value,
+    title_en: document.getElementById('wTitleEn').value,
+    body_ko: document.getElementById('wBodyKo').value,
+    body_en: document.getElementById('wBodyEn').value
+  });
+  btn.textContent = '저장 중...';
+  btn.disabled = true;
+  fetch(SHEET_URL + '?' + params.toString(), { mode: 'no-cors' })
+    .finally(function() {
+      btn.textContent = '올렸습니다 ✓';
+      btn.style.background = '#2d9e6b';
+      var newThought = {
+        date: date,
+        title_ko: document.getElementById('wTitleKo').value,
+        title_en: document.getElementById('wTitleEn').value,
+        ko: document.getElementById('wBodyKo').value,
+        en: document.getElementById('wBodyEn').value
+      };
+      thoughtsData.unshift(newThought);
+      renderThoughts(thoughtsData);
+      setTimeout(function() { closeWritePanel(); btn.textContent = '올리기'; btn.disabled = false; btn.style.background = ''; e.target.reset(); }, 1500);
+    });
+}
 
 // ===== 활성 네비 하이라이트 =====
 const navLinks = document.querySelectorAll('nav a[href^="#"]');
