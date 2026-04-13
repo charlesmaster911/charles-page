@@ -1,6 +1,6 @@
 // ===== Google Sheets 연동 URL =====
 var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxH6Sg9Jjs1ki3azFwtzHtL4OQ_nh5UhAYbbk_8FOgGNlrxkVNxY7crRecWNQ3VvIY/exec'; // 뉴스레터 + 멤버십
-var THOUGHTS_URL = 'https://script.google.com/macros/s/AKfycbw4XZYKiBcQ0Vi84-dlemP8LCRT5y7sObDZTg0MXGAoF80eP_0zc4Ppf6x31X78j4GD/exec'; // 단상 전용
+var THOUGHTS_URL = 'https://script.google.com/macros/s/AKfycbyWgBNWNcMqITF_V6IUJXxxANiKm6eFFBHzzR5Z42t6mMOWCSgxsSqcABO1ZxO4jxBD/exec'; // 단상 전용
 
 // ===== 언어 토글 =====
 function setLang(lang) {
