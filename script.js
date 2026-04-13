@@ -258,12 +258,31 @@ function toggleThought(item) {
 }
 
 (function() {
-  fetch('thoughts.json')
-    .then(function(r) { return r.json(); })
-    .then(function(thoughts) {
-      thoughtsData = thoughts;
-      renderThoughts(thoughts);
-    });
+  // Google Sheets에서 먼저 읽기, 실패 시 thoughts.json 폴백
+  if (SHEET_URL) {
+    fetch(SHEET_URL + '?action=getThoughts')
+      .then(function(r) { return r.json(); })
+      .then(function(thoughts) {
+        if (thoughts && thoughts.length > 0) {
+          thoughtsData = thoughts;
+          renderThoughts(thoughts);
+        } else {
+          loadLocalThoughts();
+        }
+      })
+      .catch(function() { loadLocalThoughts(); });
+  } else {
+    loadLocalThoughts();
+  }
+
+  function loadLocalThoughts() {
+    fetch('thoughts.json')
+      .then(function(r) { return r.json(); })
+      .then(function(thoughts) {
+        thoughtsData = thoughts;
+        renderThoughts(thoughts);
+      });
+  }
 })();
 
 // ===== 단상 쓰기 패널 (제목 5번 클릭) =====
