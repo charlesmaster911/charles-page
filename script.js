@@ -1,5 +1,6 @@
-// ===== Google Sheets 연동 URL (멤버십 + 뉴스레터 공통) =====
-var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxH6Sg9Jjs1ki3azFwtzHtL4OQ_nh5UhAYbbk_8FOgGNlrxkVNxY7crRecWNQ3VvIY/exec';
+// ===== Google Sheets 연동 URL =====
+var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxH6Sg9Jjs1ki3azFwtzHtL4OQ_nh5UhAYbbk_8FOgGNlrxkVNxY7crRecWNQ3VvIY/exec'; // 뉴스레터 + 멤버십
+var THOUGHTS_URL = 'https://script.google.com/macros/s/AKfycbw4XZYKiBcQ0Vi84-dlemP8LCRT5y7sObDZTg0MXGAoF80eP_0zc4Ppf6x31X78j4GD/exec'; // 단상 전용
 
 // ===== 언어 토글 =====
 function setLang(lang) {
@@ -265,9 +266,9 @@ function toggleThought(item) {
 }
 
 (function() {
-  // Google Sheets에서 먼저 읽기, 실패 시 thoughts.json 폴백
-  if (SHEET_URL) {
-    fetch(SHEET_URL + '?action=getThoughts')
+  // 단상 DB에서 먼저 읽기, 실패 시 thoughts.json 폴백
+  if (THOUGHTS_URL) {
+    fetch(THOUGHTS_URL + '?action=getThoughts')
       .then(function(r) { return r.json(); })
       .then(function(thoughts) {
         if (thoughts && thoughts.length > 0) {
@@ -336,7 +337,7 @@ function submitThought(e) {
   });
   btn.textContent = '저장 중...';
   btn.disabled = true;
-  fetch(SHEET_URL + '?' + params.toString(), { mode: 'no-cors' })
+  fetch(THOUGHTS_URL + '?' + params.toString(), { mode: 'no-cors' })
     .finally(function() {
       btn.textContent = '올렸습니다 ✓';
       btn.style.background = '#2d9e6b';
