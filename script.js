@@ -1,6 +1,5 @@
-// ===== 결 멤버십 설정 =====
-// Google Apps Script 배포 URL을 아래에 붙여넣으세요
-var MEMBERSHIP_SHEET_URL = 'https://script.google.com/macros/s/AKfycbym5k9sv_EU8z-pBNNnLgnMfVg1sg195I_zSwtcnmFfZVmA69Rg7JAX7DDbkpBHvjA/exec';
+// ===== Google Sheets 연동 URL (멤버십 + 뉴스레터 공통) =====
+var SHEET_URL = 'https://script.google.com/macros/s/AKfycbx6tVtnq4knKOBXet2Xu04eMYy9SBAg0eux3S3nEySa7zoDHXN5_4_wDBkfivvfQw/exec';
 
 // ===== 언어 토글 =====
 function setLang(lang) {
@@ -30,14 +29,34 @@ window.addEventListener('scroll', () => {
 // ===== 뉴스레터 폼 =====
 function handleSubscribe(e) {
   e.preventDefault();
-  const input = e.target.querySelector('input[type="email"]');
-  const btn = e.target.querySelector('button');
-  const isEn = document.documentElement.getAttribute('lang') === 'en';
-  btn.textContent = isEn ? 'Thank you ✓' : '감사합니다 ✓';
-  btn.style.background = '#2d9e6b';
-  input.value = '';
-  input.disabled = true;
+  var input = e.target.querySelector('input[type="email"]');
+  var btn = e.target.querySelector('button');
+  var isEn = document.documentElement.getAttribute('lang') === 'en';
+  var email = input.value;
+
+  btn.textContent = isEn ? 'Sending...' : '전송 중...';
   btn.disabled = true;
+
+  var params = new URLSearchParams({
+    email: email,
+    type: 'newsletter',
+    date: new Date().toLocaleString('ko-KR')
+  });
+
+  if (SHEET_URL) {
+    fetch(SHEET_URL + '?' + params.toString(), { mode: 'no-cors' })
+      .finally(function() {
+        btn.textContent = isEn ? 'Thank you ✓' : '감사합니다 ✓';
+        btn.style.background = '#2d9e6b';
+        input.value = '';
+        input.disabled = true;
+      });
+  } else {
+    btn.textContent = isEn ? 'Thank you ✓' : '감사합니다 ✓';
+    btn.style.background = '#2d9e6b';
+    input.value = '';
+    input.disabled = true;
+  }
 }
 
 // ===== 결 멤버십 모달 =====
@@ -65,13 +84,15 @@ function handleMembershipApply(e) {
   btn.textContent = isEn ? 'Sending...' : '전송 중...';
   btn.disabled = true;
 
-  if (MEMBERSHIP_SHEET_URL) {
-    fetch(MEMBERSHIP_SHEET_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, email: email, type: 'membership', date: new Date().toISOString() })
-    }).finally(function() { showMembershipSuccess(btn, isEn); });
+  var params = new URLSearchParams({
+    name: name,
+    email: email,
+    type: 'membership',
+    date: new Date().toLocaleString('ko-KR')
+  });
+  if (SHEET_URL) {
+    fetch(SHEET_URL + '?' + params.toString(), { mode: 'no-cors' })
+      .finally(function() { showMembershipSuccess(btn, isEn); });
   } else {
     showMembershipSuccess(btn, isEn);
   }
