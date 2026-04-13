@@ -1,6 +1,6 @@
 // ===== 결 멤버십 설정 =====
 // Google Apps Script 배포 URL을 아래에 붙여넣으세요
-var MEMBERSHIP_SHEET_URL = '';
+var MEMBERSHIP_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyVSuJK_FY0PhnvKLIEaklVLRvenOKnjuUWFTSp34oVrvEh3034e9w69aiNEkCXrEU/exec';
 
 // ===== 언어 토글 =====
 function setLang(lang) {
