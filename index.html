@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=17" />
+  <link rel="stylesheet" href="style.css?v=18" />
 </head>
 <body>
 
@@ -321,7 +321,7 @@ This is my third life.</span>
           <span class="ko">시간이 부족한 사람들이 서로의 힘으로 더 멀리 갑니다.<br>자유롭고 행복하게, 세상에 흔적을 남기고 싶은 사람들을 위해.</span>
           <span class="en">People with limited time go further through each other.<br>For those who want to live freely, happily, and leave their mark.</span>
         </p>
-        <a href="#" class="btn-outline">
+        <a href="#" class="btn-outline" onclick="openMembershipModal(event)">
           <span class="ko">멤버십 알아보기 →</span>
           <span class="en">Learn About Membership →</span>
         </a>
@@ -463,6 +463,34 @@ This is my third life.</span>
   </div>
 </footer>
 
-<script src="script.js?v=8"></script>
+<!-- 결 멤버십 모달 -->
+<div id="membershipModal" class="modal-overlay" onclick="closeMembershipModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeMembershipModal()">&times;</button>
+    <p class="modal-label"><span class="ko">연결</span><span class="en">Connection</span></p>
+    <h2 class="modal-title">
+      <span class="ko">결 멤버십 신청</span>
+      <span class="en">Apply for Gyul</span>
+    </h2>
+    <p class="modal-desc">
+      <span class="ko">각 분야 최고의 사람들이 처음으로 서로를 만나는 공간.<br>관심 있으시면 이름과 이메일을 남겨주세요.</span>
+      <span class="en">A space where top people meet for the first time.<br>Leave your name and email to learn more.</span>
+    </p>
+    <form class="modal-form" onsubmit="handleMembershipApply(event)">
+      <input type="text" id="memberName" placeholder="이름 / Name" required />
+      <input type="email" id="memberEmail" placeholder="이메일 / Email" required />
+      <button type="submit" class="modal-submit">
+        <span class="ko">신청하기</span>
+        <span class="en">Apply</span>
+      </button>
+    </form>
+    <p class="modal-privacy">
+      <span class="ko">이메일은 결 모임 안내 외 다른 용도로 사용하지 않습니다.</span>
+      <span class="en">Your email will only be used for Gyul membership updates.</span>
+    </p>
+  </div>
+</div>
+
+<script src="script.js?v=9"></script>
 </body>
 </html>

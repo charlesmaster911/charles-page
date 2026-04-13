@@ -1136,6 +1136,116 @@ nav a.nav-active:not(.nav-cta)::after {
   to   { transform: scaleX(1); }
 }
 
+/* ===== 결 멤버십 모달 ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.modal-open {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal-box {
+  background: var(--bg-alt);
+  border: 1px solid var(--faint);
+  border-radius: 4px;
+  padding: 48px 44px 40px;
+  max-width: 480px;
+  width: 90%;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.modal-overlay.modal-open .modal-box {
+  transform: translateY(0);
+}
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: var(--text); }
+.modal-label {
+  font-family: var(--body);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.modal-title {
+  font-family: var(--display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.modal-desc {
+  font-family: var(--body);
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.modal-form input {
+  padding: 13px 16px;
+  background: rgba(250,251,237,0.05);
+  border: 1px solid var(--faint);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 0.95rem;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.modal-form input:focus { border-color: var(--accent); }
+.modal-form input::placeholder { color: rgba(250,251,237,0.25); }
+.modal-submit {
+  padding: 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-family: var(--body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 4px;
+}
+.modal-submit:hover { background: #009fe0; }
+.modal-submit:disabled { background: #2d9e6b; cursor: default; }
+.modal-privacy {
+  font-family: var(--body);
+  font-size: 0.72rem;
+  color: var(--faint);
+  line-height: 1.6;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 767px) {
   .container { padding: 0 20px; }

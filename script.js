@@ -1,3 +1,7 @@
+// ===== 결 멤버십 설정 =====
+// Google Apps Script 배포 URL을 아래에 붙여넣으세요
+var MEMBERSHIP_SHEET_URL = '';
+
 // ===== 언어 토글 =====
 function setLang(lang) {
   document.documentElement.setAttribute('lang', lang);
@@ -34,6 +38,49 @@ function handleSubscribe(e) {
   input.value = '';
   input.disabled = true;
   btn.disabled = true;
+}
+
+// ===== 결 멤버십 모달 =====
+function openMembershipModal(e) {
+  if (e) e.preventDefault();
+  document.getElementById('membershipModal').classList.add('modal-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMembershipModal(e) {
+  if (e && e.target !== document.getElementById('membershipModal')) return;
+  document.getElementById('membershipModal').classList.remove('modal-open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeMembershipModal();
+});
+
+function handleMembershipApply(e) {
+  e.preventDefault();
+  var name = document.getElementById('memberName').value;
+  var email = document.getElementById('memberEmail').value;
+  var btn = e.target.querySelector('.modal-submit');
+  var isEn = document.documentElement.getAttribute('lang') === 'en';
+
+  btn.textContent = isEn ? 'Sending...' : '전송 중...';
+  btn.disabled = true;
+
+  if (MEMBERSHIP_SHEET_URL) {
+    fetch(MEMBERSHIP_SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, email: email, type: 'membership', date: new Date().toISOString() })
+    }).finally(function() { showMembershipSuccess(btn, isEn); });
+  } else {
+    showMembershipSuccess(btn, isEn);
+  }
+}
+function showMembershipSuccess(btn, isEn) {
+  btn.textContent = isEn ? 'Thank you ✓' : '신청 완료 ✓';
+  btn.style.background = '#2d9e6b';
+  document.getElementById('memberName').disabled = true;
+  document.getElementById('memberEmail').disabled = true;
 }
 
 // ===== 스무스 스크롤 =====
