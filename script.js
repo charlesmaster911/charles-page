@@ -1,5 +1,5 @@
 // ===== Google Sheets 연동 URL (멤버십 + 뉴스레터 공통) =====
-var SHEET_URL = 'https://script.google.com/macros/s/AKfycbx6tVtnq4knKOBXet2Xu04eMYy9SBAg0eux3S3nEySa7zoDHXN5_4_wDBkfivvfQw/exec';
+var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxH6Sg9Jjs1ki3azFwtzHtL4OQ_nh5UhAYbbk_8FOgGNlrxkVNxY7crRecWNQ3VvIY/exec';
 
 // ===== 언어 토글 =====
 function setLang(lang) {
