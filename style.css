@@ -677,8 +677,22 @@ nav a:hover { color: var(--text); }
   inset: 0;
   background-image: url('bg-stage.jpg');
   background-size: cover;
-  background-position: center 20%;
-  opacity: 0.08;
+  background-position: center 75%;
+  opacity: 0.28;
+  z-index: 0;
+  pointer-events: none;
+}
+#mastermind::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--bg-alt) 0%,
+    rgba(0,0,0,0.55) 35%,
+    rgba(0,0,0,0.35) 70%,
+    var(--bg-alt) 100%
+  );
   z-index: 0;
   pointer-events: none;
 }
