@@ -141,6 +141,8 @@ nav a:hover { color: var(--text); }
   object-fit: cover;
   object-position: top center;
   z-index: 2;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
 }
 .photo-placeholder {
   position: absolute;
@@ -223,6 +225,7 @@ nav a:hover { color: var(--text); }
   letter-spacing: -0.03em;
   line-height: 1.1;
   display: block;
+  white-space: nowrap;
 }
 .tagline {
   font-family: var(--body);
