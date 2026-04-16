@@ -227,6 +227,43 @@ document.querySelectorAll('.newsletter-inner').forEach(el => {
 // ===== 단상 로딩 & 아코디언 =====
 var thoughtsData = [];
 
+function daysAgo(dateStr) {
+  var parts = dateStr.split('.');
+  if (parts.length < 3) return '';
+  var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+  var now = new Date();
+  var diff = Math.floor((now - d) / (1000 * 60 * 60 * 24));
+  if (diff === 0) return '오늘';
+  if (diff === 1) return '어제';
+  if (diff < 7) return diff + '일 전';
+  if (diff < 30) return Math.floor(diff / 7) + '주 전';
+  return Math.floor(diff / 30) + '개월 전';
+}
+
+function shareThought(e, title, date) {
+  e.stopPropagation();
+  var btn = e.currentTarget;
+  var url = window.location.origin + window.location.pathname + '?t=' + encodeURIComponent(date);
+  var text = '"' + title + '" — Charles Chang\n' + url;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = '복사됨 ✓';
+      btn.classList.add('copied');
+      setTimeout(function() { btn.textContent = '링크 복사'; btn.classList.remove('copied'); }, 2000);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '복사됨 ✓';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = '링크 복사'; btn.classList.remove('copied'); }, 2000);
+  }
+}
+
 function renderThoughts(thoughts) {
   var list = document.getElementById('thoughtsList');
   if (!list) return;
@@ -235,6 +272,10 @@ function renderThoughts(thoughts) {
   var isEn = document.documentElement.getAttribute('lang') === 'en';
   list.innerHTML = '';
 
+  // 단상 개수 뱃지 업데이트
+  var badge = document.getElementById('thoughtsCountBadge');
+  if (badge) badge.textContent = '총 ' + thoughts.length + '개';
+
   // 메인 페이지는 5개만, thoughts.html은 전부
   var isFullPage = window.__THOUGHTS_PAGE__ === true;
   var items = isFullPage ? thoughts : thoughts.slice(0, 5);
@@ -242,17 +283,19 @@ function renderThoughts(thoughts) {
   items.forEach(function(t, i) {
     var title = isEn ? (t.title_en || t.title_ko) : t.title_ko;
     var body = isEn ? (t.en || t.ko) : t.ko;
+    var rel = daysAgo(t.date);
     var item = document.createElement('div');
     item.className = 'thought-item reveal';
     item.dataset.delay = i * 80;
     item.innerHTML =
       '<div class="thought-header" onclick="toggleThought(this.parentElement)">' +
-        '<span class="thought-date">' + t.date + '</span>' +
+        '<span class="thought-date">' + t.date + (rel ? '<em class="thought-rel-date">' + rel + '</em>' : '') + '</span>' +
         '<p class="thought-title">' + title + '</p>' +
         '<span class="thought-arrow">↓</span>' +
       '</div>' +
       '<div class="thought-body">' +
         '<p class="thought-content">' + body.replace(/\n/g, '<br>') + '</p>' +
+        '<button class="thought-share-btn" onclick="shareThought(event, \'' + title.replace(/'/g, "\\'") + '\', \'' + t.date + '\')">링크 복사</button>' +
       '</div>';
     list.appendChild(item);
     revealObs.observe(item);
@@ -266,30 +309,47 @@ function toggleThought(item) {
 }
 
 (function() {
-  // 단상 DB에서 먼저 읽기, 실패 시 thoughts.json 폴백
+  // thoughts.json(기본) + GAS(추가분) 병합 로드
+  var localThoughts = [];
+  var gasThoughts = [];
+
+  function mergeAndRender() {
+    // 병합: localThoughts 기준, GAS에만 있는 항목 추가
+    var combined = localThoughts.slice();
+    gasThoughts.forEach(function(g) {
+      var exists = combined.some(function(l) {
+        return l.date === g.date && l.title_ko === g.title_ko;
+      });
+      if (!exists) combined.push(g);
+    });
+    // 날짜 내림차순 정렬
+    combined.sort(function(a, b) {
+      return b.date.localeCompare(a.date);
+    });
+    thoughtsData = combined;
+    renderThoughts(combined);
+  }
+
+  // 1. thoughts.json 항상 로드
+  fetch('thoughts.json')
+    .then(function(r) { return r.json(); })
+    .then(function(thoughts) {
+      localThoughts = thoughts || [];
+      mergeAndRender();
+    })
+    .catch(function() { mergeAndRender(); });
+
+  // 2. GAS에서 추가분 비동기 로드
   if (THOUGHTS_URL) {
     fetch(THOUGHTS_URL + '?action=getThoughts')
       .then(function(r) { return r.json(); })
       .then(function(thoughts) {
         if (thoughts && thoughts.length > 0) {
-          thoughtsData = thoughts;
-          renderThoughts(thoughts);
-        } else {
-          loadLocalThoughts();
+          gasThoughts = thoughts;
+          mergeAndRender();
         }
       })
-      .catch(function() { loadLocalThoughts(); });
-  } else {
-    loadLocalThoughts();
-  }
-
-  function loadLocalThoughts() {
-    fetch('thoughts.json')
-      .then(function(r) { return r.json(); })
-      .then(function(thoughts) {
-        thoughtsData = thoughts;
-        renderThoughts(thoughts);
-      });
+      .catch(function() { /* GAS 실패 무시 */ });
   }
 })();
 

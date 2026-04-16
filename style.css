@@ -1527,9 +1527,116 @@ nav a.nav-active:not(.nav-cta)::after {
   line-height: 1.6;
 }
 
+/* ===== 단상 공유 버튼 ===== */
+.thought-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--body);
+  font-size: 0.75rem;
+  color: var(--faint);
+  border: 1px solid var(--faint);
+  background: transparent;
+  padding: 6px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: color 0.2s, border-color 0.2s;
+  margin-top: 4px;
+  margin-bottom: 32px;
+}
+.thought-share-btn:hover { color: var(--accent); border-color: var(--accent); }
+.thought-share-btn.copied { color: #2d9e6b; border-color: #2d9e6b; }
+
+/* ===== 단상 상대 날짜 ===== */
+.thought-rel-date {
+  font-family: var(--body);
+  font-size: 0.65rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  display: block;
+  margin-top: 3px;
+  opacity: 0.8;
+}
+
+/* ===== 단상 열림 강조 ===== */
+.thought-item.open { background: rgba(250,251,237,0.02); border-radius: 2px; }
+.thought-item.open .thought-title { color: var(--accent); }
+
+/* ===== 단상 개수 뱃지 ===== */
+.thoughts-count-badge {
+  display: inline-block;
+  font-family: var(--body);
+  font-size: 0.72rem;
+  color: var(--faint);
+  letter-spacing: 0.08em;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+/* ===== 단상 페이지 구독 CTA ===== */
+.thoughts-subscribe {
+  border: 1px solid var(--faint);
+  border-radius: 2px;
+  padding: 24px 28px;
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.thoughts-subscribe-text strong {
+  font-family: var(--display);
+  font-size: 1rem;
+  color: var(--text);
+  display: block;
+  margin-bottom: 4px;
+}
+.thoughts-subscribe-text p {
+  font-family: var(--body);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.thoughts-sub-form {
+  display: flex;
+  flex-shrink: 0;
+}
+.thoughts-sub-form input {
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--faint);
+  border-right: none;
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 0.85rem;
+  outline: none;
+  border-radius: 2px 0 0 2px;
+  width: 200px;
+  transition: border-color 0.2s;
+}
+.thoughts-sub-form input:focus { border-color: var(--accent); }
+.thoughts-sub-form input::placeholder { color: var(--faint); }
+.thoughts-sub-form button {
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-family: var(--body);
+  font-size: 0.82rem;
+  cursor: pointer;
+  border-radius: 0 2px 2px 0;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.thoughts-sub-form button:hover { background: #009fe0; }
+.thoughts-sub-form button:disabled { background: #2d9e6b; cursor: default; }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 767px) {
   .container { padding: 0 20px; }
+
+  /* 헤더 subtitle 모바일 숨김 */
+  .site-name em { display: none; }
 
   .hero-inner {
     grid-template-columns: 1fr;
@@ -1564,7 +1671,12 @@ nav a.nav-active:not(.nav-cta)::after {
   .youtube-thumb { order: -1; }
 
   .app-grid { grid-template-columns: 1fr; }
-  .thought-header { grid-template-columns: 1fr 24px; gap: 12px; }
+  .thought-header {
+    grid-template-columns: 1fr 24px;
+    gap: 12px;
+    padding: 22px 0;
+    min-height: 56px; /* 터치 영역 확보 */
+  }
   .thought-date { display: none; }
   .thought-content { padding-left: 0; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -1573,4 +1685,9 @@ nav a.nav-active:not(.nav-cta)::after {
   .sub-form { flex-direction: column; }
   .sub-form input { border-right: 1px solid var(--faint); border-bottom: none; border-radius: 2px 2px 0 0; }
   .sub-form button { border-radius: 0 0 2px 2px; }
+
+  /* 단상 구독 모바일 */
+  .thoughts-subscribe { flex-direction: column; align-items: flex-start; padding: 20px; gap: 16px; }
+  .thoughts-sub-form { width: 100%; }
+  .thoughts-sub-form input { flex: 1; width: auto; }
 }

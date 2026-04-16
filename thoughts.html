@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=21" />
+  <link rel="stylesheet" href="style.css?v=23" />
 </head>
 <body>
 
@@ -41,7 +41,23 @@
         <span class="ko">완성된 글이 아니어도 된다.<br>스치는 생각, 관찰, 질문.</span>
         <span class="en">It doesn't have to be a finished piece.<br>Passing thoughts, observations, questions.</span>
       </p>
+      <p class="thoughts-page-desc" style="margin-top:8px;">
+        <span id="thoughtsCountBadge" class="thoughts-count-badge"></span>
+      </p>
     </div>
+
+    <!-- 단상 구독 CTA -->
+    <div class="thoughts-subscribe">
+      <div class="thoughts-subscribe-text">
+        <strong><span class="ko">새 단상 알림받기</span><span class="en">Get New Fragments</span></strong>
+        <p><span class="ko">찰스가 새 단상을 올리면 이메일로 알려드립니다.</span><span class="en">Get notified when Charles posts a new fragment.</span></p>
+      </div>
+      <form class="thoughts-sub-form" onsubmit="handleThoughtSubscribe(event)">
+        <input type="email" placeholder="이메일 입력" data-ko-placeholder="이메일 입력" data-en-placeholder="Enter email" required />
+        <button type="submit"><span class="ko">구독</span><span class="en">Subscribe</span></button>
+      </form>
+    </div>
+
     <div class="thoughts-list" id="thoughtsList"></div>
     <div id="thoughtsLoading" class="thoughts-loading">
       <span class="ko">불러오는 중...</span><span class="en">Loading...</span>
@@ -53,7 +69,25 @@
   <p class="footer-copy">© 2026 Charles Chang · <a href="index.html" style="color:var(--accent);">charlespage.onrender.com</a></p>
 </footer>
 
-<script src="script.js?v=10"></script>
+<script src="script.js?v=11"></script>
+<script>
+function handleThoughtSubscribe(e) {
+  e.preventDefault();
+  var input = e.target.querySelector('input[type="email"]');
+  var btn = e.target.querySelector('button');
+  var email = input.value;
+  btn.textContent = '...';
+  btn.disabled = true;
+  var params = new URLSearchParams({ email: email, type: 'thoughts-subscribe', date: new Date().toLocaleString('ko-KR') });
+  fetch(SHEET_URL + '?' + params.toString(), { mode: 'no-cors' })
+    .finally(function() {
+      btn.textContent = '완료 ✓';
+      btn.style.background = '#2d9e6b';
+      input.value = '';
+      input.disabled = true;
+    });
+}
+</script>
 <script>
   // 전체 단상 페이지 — 모두 표시
   window.__THOUGHTS_PAGE__ = true;
