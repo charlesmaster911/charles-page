@@ -310,7 +310,8 @@ nav a:hover { color: var(--text); }
   font-family: var(--display);
   color: var(--text);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
 }
 .divider-dot { color: var(--faint); font-size: 1.2rem; }
 
@@ -1017,7 +1018,7 @@ body::before {
 .hero-text-inner h1        { animation: heroUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.22s both; }
 .hero-text-inner .tagline  { animation: heroUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.36s both; }
 .hero-text-inner .hero-meta{ animation: heroUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.46s both; }
-.hero-text-inner .btn-cta  { animation: heroUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.56s both; }
+.hero-text-inner .hero-ctas { animation: heroUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.56s both; }
 .hero-text-inner .hero-scroll-hint { animation: heroUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.68s both; }
 .hero-photo                { animation: heroSlideLeft 1.1s cubic-bezier(0.16,1,0.3,1) 0.0s both; }
 
@@ -1026,9 +1027,8 @@ body::before {
   0%, 100% { box-shadow: 0 0 0 0 rgba(0,184,255,0.55); }
   55%      { box-shadow: 0 0 0 10px rgba(0,184,255,0); }
 }
-.hero-text-inner .btn-cta {
-  animation: heroUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.56s both,
-             ctaPulse 2.8s ease 1.5s infinite;
+.hero-text-inner .hero-ctas .btn-cta {
+  animation: ctaPulse 2.8s ease 1.5s infinite;
 }
 
 /* ---- Scroll reveal system ---- */
@@ -1631,6 +1631,116 @@ nav a.nav-active:not(.nav-cta)::after {
 .thoughts-sub-form button:hover { background: #009fe0; }
 .thoughts-sub-form button:disabled { background: #2d9e6b; cursor: default; }
 
+/* ===== HERO CTA GROUP ===== */
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.hero-ctas .btn-cta { margin-bottom: 0; }
+.btn-cta-secondary {
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--faint);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-cta-secondary:hover { color: var(--text); border-color: var(--muted); }
+
+/* ===== 결 모달 상세 정보 ===== */
+.modal-details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  background: rgba(0,184,255,0.05);
+  border: 1px solid rgba(0,184,255,0.15);
+  border-radius: 3px;
+}
+.modal-details li {
+  font-family: var(--body);
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+}
+.modal-details li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* ===== 뉴스레터 구독자 수 ===== */
+.sub-count {
+  margin-top: 14px;
+  font-family: var(--body);
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+}
+
+/* ===== 햄버거 메뉴 ===== */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: 12px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--text);
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), opacity 0.2s;
+  border-radius: 1px;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--faint);
+  z-index: 99;
+  flex-direction: column;
+  padding: 8px 20px 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+  padding: 14px 0;
+  font-family: var(--body);
+  font-size: 1rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--faint);
+  transition: color 0.2s;
+}
+.nav-mobile a:last-child { border-bottom: none; }
+.nav-mobile a:hover { color: var(--text); }
+.nav-mobile-cta {
+  color: var(--accent) !important;
+  font-weight: 500 !important;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 767px) {
   .container { padding: 0 20px; }
@@ -1656,6 +1766,8 @@ nav a.nav-active:not(.nav-cta)::after {
   .hero-text-inner { max-width: 100%; }
 
   nav a:not(.nav-cta) { display: none; }
+  .nav-hamburger { display: flex; }
+  .site-name em { display: none; }
 
   .stats-bar .container { gap: 12px; }
   .divider-dot { display: none; }
