@@ -1290,7 +1290,7 @@ nav a.nav-active:not(.nav-cta)::after {
   max-height: 0;
   transition: max-height 0.45s cubic-bezier(0.16,1,0.3,1);
 }
-.thought-item.open .thought-body { max-height: 600px; }
+.thought-item.open .thought-body { max-height: 2000px; }
 .thought-content {
   font-family: var(--body);
   font-size: 1rem;
