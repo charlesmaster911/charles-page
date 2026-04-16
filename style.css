@@ -862,6 +862,52 @@ blockquote {
   z-index: 1;
 }
 
+/* ===== YouTube 썸네일 ===== */
+.youtube-thumb-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+.yt-thumb-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), filter 0.3s;
+  filter: brightness(0.75);
+}
+.youtube-thumb-link:hover .yt-thumb-img {
+  transform: scale(1.03);
+  filter: brightness(0.6);
+}
+.youtube-thumb { position: relative; overflow: hidden; }
+
+/* ===== 뉴스레터 카운터 강조 ===== */
+.sub-counter-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 4px;
+}
+.sub-counter-num {
+  font-family: var(--display);
+  font-size: clamp(4rem, 10vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  line-height: 1;
+  display: block;
+}
+.sub-counter-label {
+  font-family: var(--body);
+  font-size: 0.95rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
 /* ===== NEWSLETTER ===== */
 #newsletter {
   padding: 96px 0;
