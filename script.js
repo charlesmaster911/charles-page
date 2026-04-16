@@ -245,23 +245,14 @@ function shareThought(e, title, date) {
   var btn = e.currentTarget;
   var url = window.location.origin + window.location.pathname + '?t=' + encodeURIComponent(date);
   var text = '"' + title + '" — Charles Chang\n' + url;
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(function() {
-      btn.textContent = '복사됨 ✓';
-      btn.classList.add('copied');
-      setTimeout(function() { btn.textContent = '링크 복사'; btn.classList.remove('copied'); }, 2000);
-    });
-  } else {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
+  navigator.clipboard.writeText(text).then(function() {
     btn.textContent = '복사됨 ✓';
     btn.classList.add('copied');
     setTimeout(function() { btn.textContent = '링크 복사'; btn.classList.remove('copied'); }, 2000);
-  }
+  }).catch(function() {
+    btn.textContent = '복사 실패';
+    setTimeout(function() { btn.textContent = '링크 복사'; }, 2000);
+  });
 }
 
 function renderThoughts(thoughts) {
@@ -287,16 +278,52 @@ function renderThoughts(thoughts) {
     var item = document.createElement('div');
     item.className = 'thought-item reveal';
     item.dataset.delay = i * 80;
-    item.innerHTML =
-      '<div class="thought-header" onclick="toggleThought(this.parentElement)">' +
-        '<span class="thought-date">' + t.date + (rel ? '<em class="thought-rel-date">' + rel + '</em>' : '') + '</span>' +
-        '<p class="thought-title">' + title + '</p>' +
-        '<span class="thought-arrow">↓</span>' +
-      '</div>' +
-      '<div class="thought-body">' +
-        '<p class="thought-content">' + body.replace(/\n/g, '<br>') + '</p>' +
-        '<button class="thought-share-btn" onclick="shareThought(event, \'' + title.replace(/'/g, "\\'") + '\', \'' + t.date + '\')">링크 복사</button>' +
-      '</div>';
+
+    var header = document.createElement('div');
+    header.className = 'thought-header';
+    header.onclick = function() { toggleThought(item); };
+
+    var dateSpan = document.createElement('span');
+    dateSpan.className = 'thought-date';
+    dateSpan.textContent = t.date;
+    if (rel) {
+      var relEm = document.createElement('em');
+      relEm.className = 'thought-rel-date';
+      relEm.textContent = rel;
+      dateSpan.appendChild(relEm);
+    }
+
+    var titleP = document.createElement('p');
+    titleP.className = 'thought-title';
+    titleP.textContent = title;
+
+    var arrow = document.createElement('span');
+    arrow.className = 'thought-arrow';
+    arrow.textContent = '↓';
+
+    header.appendChild(dateSpan);
+    header.appendChild(titleP);
+    header.appendChild(arrow);
+
+    var bodyDiv = document.createElement('div');
+    bodyDiv.className = 'thought-body';
+
+    var contentP = document.createElement('p');
+    contentP.className = 'thought-content';
+    body.split('\n').forEach(function(line, idx, arr) {
+      contentP.appendChild(document.createTextNode(line));
+      if (idx < arr.length - 1) contentP.appendChild(document.createElement('br'));
+    });
+
+    var shareBtn = document.createElement('button');
+    shareBtn.className = 'thought-share-btn';
+    shareBtn.textContent = '링크 복사';
+    shareBtn.onclick = function(e) { shareThought(e, title, t.date); };
+
+    bodyDiv.appendChild(contentP);
+    bodyDiv.appendChild(shareBtn);
+    item.appendChild(header);
+    item.appendChild(bodyDiv);
     list.appendChild(item);
     revealObs.observe(item);
   });
