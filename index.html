@@ -324,12 +324,26 @@ This is my third life.</span>
           </div>
           <p><span class="ko">Micro Ice Factory. 개발도상국 냉장 인프라 혁신. 소셜 임팩트.</span><span class="en">Micro Ice Factory. Revolutionizing cold chain infrastructure in developing countries. Social impact.</span></p>
         </div>
-        <a class="brand-mif-slide" href="https://drive.google.com/file/d/13I909tI7CxngsZSOacyFsCemB3TAIL1j/view?usp=sharing" target="_blank" rel="noopener">
-          <img src="mif-slide1-opt.jpg" alt="MIF Micro Ice Factory 발표자료" />
-          <div class="mif-slide-overlay">
-            <span><span class="ko">발표자료 보기 →</span><span class="en">View Deck →</span></span>
+        <div class="mif-deck">
+          <div class="mif-deck-track" id="mifTrack">
+            <img src="mif-slides/slide-01.jpg" class="mif-deck-slide" alt="MIF 슬라이드 1" loading="eager" />
+            <img src="mif-slides/slide-02.jpg" class="mif-deck-slide" alt="MIF 슬라이드 2" loading="lazy" />
+            <img src="mif-slides/slide-03.jpg" class="mif-deck-slide" alt="MIF 슬라이드 3" loading="lazy" />
+            <img src="mif-slides/slide-04.jpg" class="mif-deck-slide" alt="MIF 슬라이드 4" loading="lazy" />
+            <img src="mif-slides/slide-05.jpg" class="mif-deck-slide" alt="MIF 슬라이드 5" loading="lazy" />
+            <img src="mif-slides/slide-06.jpg" class="mif-deck-slide" alt="MIF 슬라이드 6" loading="lazy" />
+            <img src="mif-slides/slide-07.jpg" class="mif-deck-slide" alt="MIF 슬라이드 7" loading="lazy" />
+            <img src="mif-slides/slide-08.jpg" class="mif-deck-slide" alt="MIF 슬라이드 8" loading="lazy" />
+            <img src="mif-slides/slide-09.jpg" class="mif-deck-slide" alt="MIF 슬라이드 9" loading="lazy" />
+            <img src="mif-slides/slide-10.jpg" class="mif-deck-slide" alt="MIF 슬라이드 10" loading="lazy" />
+            <img src="mif-slides/slide-11.jpg" class="mif-deck-slide" alt="MIF 슬라이드 11" loading="lazy" />
           </div>
-        </a>
+          <div class="mif-deck-nav">
+            <button class="mif-btn" id="mifPrevBtn" onclick="mifPrev()">&#8592;</button>
+            <span class="mif-deck-count" id="mifCount">1 / 11</span>
+            <button class="mif-btn" id="mifNextBtn" onclick="mifNext()">&#8594;</button>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -616,6 +630,36 @@ This is my third life.</span>
 
 <script src="script.js?v=10"></script>
 <script>
+// MIF 슬라이드쇼
+var mifCurrent = 0;
+var mifTotal = 11;
+function mifGoTo(n) {
+  mifCurrent = (n + mifTotal) % mifTotal;
+  document.getElementById('mifTrack').style.transform = 'translateX(-' + (mifCurrent * 100) + '%)';
+  document.getElementById('mifCount').textContent = (mifCurrent + 1) + ' / ' + mifTotal;
+  document.getElementById('mifPrevBtn').style.opacity = mifCurrent === 0 ? '0.3' : '1';
+  document.getElementById('mifNextBtn').style.opacity = mifCurrent === mifTotal - 1 ? '0.3' : '1';
+}
+function mifPrev() { mifGoTo(mifCurrent - 1); }
+function mifNext() { mifGoTo(mifCurrent + 1); }
+// 키보드 & 터치 지원
+document.addEventListener('keydown', function(e) {
+  var deck = document.querySelector('.mif-deck');
+  if (!deck) return;
+  if (e.key === 'ArrowLeft') mifPrev();
+  if (e.key === 'ArrowRight') mifNext();
+});
+(function() {
+  var startX = 0;
+  var track = document.getElementById('mifTrack');
+  if (!track) return;
+  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) { dx < 0 ? mifNext() : mifPrev(); }
+  }, {passive:true});
+})();
+
 function toggleMobileNav() {
   const nav = document.getElementById('navMobile');
   const btn = document.getElementById('navHamburger');
