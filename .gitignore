@@ -11,3 +11,8 @@ screencapture-*.png
 # 편집기
 .vscode/
 .idea/
+# 환경변수 (절대 커밋 금지)
+.env
+.env.local
+.env.*.local
+node_modules/
