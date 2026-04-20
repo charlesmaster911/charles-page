@@ -13,6 +13,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Charles Chang — Relationship Alchemist" />
   <meta name="twitter:description" content="최고를 경험한 사람들을 연결합니다. 그 연결이 세상을 바꾸는 임팩트가 됩니다." />
+  <meta name="twitter:image" content="https://charles-page.onrender.com/profile.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
@@ -33,9 +34,9 @@
       <a href="#newsletter" class="nav-cta"><span class="ko">구독하기</span><span class="en">Subscribe</span></a>
     </nav>
     <div class="lang-toggle">
-      <button class="lang-btn" onclick="setLang('ko')">KO</button>
+      <button class="lang-btn" data-active="ko" onclick="setLang('ko')">KO</button>
       <span class="lang-sep">·</span>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-active="en" onclick="setLang('en')">EN</button>
     </div>
     <button class="nav-hamburger" id="navHamburger" aria-label="메뉴" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
@@ -450,6 +451,21 @@ This is my third life.</span>
           <span class="app-link"><span class="ko">열기 →</span><span class="en">Open →</span></span>
         </div>
       </a>
+      <a href="https://macdosa.com" target="_blank" rel="noopener" class="app-card">
+        <div class="app-preview">
+          <img src="app-macdosa.png" alt="맥도사 미리보기" />
+          <div class="app-preview-overlay"><span class="ko">열어보기 →</span><span class="en">Open →</span></div>
+        </div>
+        <div class="app-card-inner">
+          <span class="app-num">03</span>
+          <h3 class="app-name">맥도사</h3>
+          <p class="app-desc">
+            <span class="ko">애플 제품 AI 최저가 비교 서비스.<br>맥북·아이폰·아이패드, 지금 사야 할지 AI가 판단한다.</span>
+            <span class="en">AI-powered Apple product price comparison.<br>MacBook, iPhone, iPad — AI tells you when to buy.</span>
+          </p>
+          <span class="app-link"><span class="ko">열기 →</span><span class="en">Open →</span></span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -629,7 +645,7 @@ This is my third life.</span>
   </div>
 </div>
 
-<script src="script.js?v=10"></script>
+<script src="script.js?v=11"></script>
 <script>
 // MIF 슬라이드쇼
 var mifCurrent = 0;
