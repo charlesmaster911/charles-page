@@ -10,11 +10,8 @@ function setLang(lang) {
   if (emailInput) {
     emailInput.placeholder = emailInput.getAttribute('data-' + lang + '-placeholder') || emailInput.placeholder;
   }
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.setAttribute('data-active', lang === 'ko' ? 'ko' : 'en');
-  });
-  document.querySelectorAll('.lang-btn')[0].setAttribute('data-active', 'ko');
-  document.querySelectorAll('.lang-btn')[1].setAttribute('data-active', 'en');
+  // 각 버튼의 data-active는 고정(ko/en), html[lang] 속성으로 CSS가 활성 버튼 결정
+  // → 초기화만 보장하면 됨 (HTML에 data-active 이미 선언)
 }
 (function() {
   const saved = localStorage.getItem('prefLang') || 'ko';
