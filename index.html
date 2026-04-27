@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=23" />
+  <link rel="stylesheet" href="style.css?v=24" />
 </head>
 <body>
 
@@ -56,49 +56,41 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-inner">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
 
-    <div class="hero-photo">
-      <img src="profile.jpg" alt="Charles Chang" onerror="this.style.display='none'" />
-      <div class="photo-placeholder">
-        <div class="monogram">CC</div>
-        <span class="monogram-name">Charles Chang</span>
-      </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">
+      <span class="ko">관계의 연금술사</span>
+      <span class="en">Relationship Alchemist</span>
+    </p>
+
+    <h1 class="hero-title">
+      <span class="ko"><span class="h1-light">사람을 연결하고</span><br><strong class="h1-bold">관계를 바꿉니다.</strong></span>
+      <span class="en"><span class="h1-light">Connecting People,</span><br><strong class="h1-bold">Changing Lives.</strong></span>
+    </h1>
+
+    <p class="hero-subtitle">
+      <span class="ko">최고를 경험한 사람들을 연결합니다.<br>그 연결이 세상을 바꾸는 임팩트가 됩니다.</span>
+      <span class="en">I connect people who have reached the top.<br>That connection becomes the impact that changes the world.</span>
+    </p>
+
+    <div class="hero-cta-row">
+      <a href="#" class="hero-btn hero-btn-primary" onclick="openMembershipModal(event)">
+        <span class="ko">결 멤버십 알아보기</span>
+        <span class="en">Join Gyul</span>
+        <span class="hero-btn-arrow">→</span>
+      </a>
+      <a href="#newsletter" class="hero-btn hero-btn-secondary">
+        <span class="ko">뉴스레터 구독</span>
+        <span class="en">Subscribe</span>
+      </a>
     </div>
 
-    <div class="hero-text">
-      <div class="hero-text-inner">
-        <p class="eyebrow">Relationship Alchemist</p>
-        <h1>
-          <span class="ko"><span class="h1-light">사람을 연결하고<br>관계를 바꾸는</span><br><strong class="h1-bold">찰스 장입니다.</strong></span>
-          <span class="en"><span class="h1-light">Connecting people.<br>Changing lives.</span><br><strong class="h1-bold">I'm Charles Chang.</strong></span>
-        </h1>
-        <p class="tagline">
-          <span class="ko">사람과 사람이 만날 때 일어나는 일을<br>나는 믿습니다.</span>
-          <span class="en">I believe in what happens<br>when the right people meet.</span>
-        </p>
-        <div class="hero-meta">
-          <span><span class="ko">창업가</span><span class="en">Entrepreneur</span></span>
-          <span><span class="ko">작가</span><span class="en">Author</span></span>
-          <span><span class="ko">마스터마인딩 퍼실리테이터</span><span class="en">Mastermind Facilitator</span></span>
-        </div>
-        <div class="hero-ctas">
-          <a href="#" class="btn-cta" onclick="openMembershipModal(event)">
-            <span class="ko">결 멤버십 알아보기 →</span>
-            <span class="en">Join Gyul →</span>
-          </a>
-          <a href="#newsletter" class="btn-cta-secondary">
-            <span class="ko">뉴스레터 구독 →</span>
-            <span class="en">Subscribe →</span>
-          </a>
-        </div>
-        <div class="hero-scroll-hint">
-          <span class="scroll-line"></span>
-          <span class="scroll-label"><span class="ko">스크롤</span><span class="en">Scroll</span></span>
-        </div>
-      </div>
+    <div class="hero-scroll">
+      <span class="hero-scroll-label"><span class="ko">스크롤</span><span class="en">Scroll</span></span>
+      <span class="hero-scroll-line"></span>
     </div>
-
   </div>
 </section>
 
