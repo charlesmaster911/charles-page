@@ -3,704 +3,355 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Charles Chang — Relationship Alchemist</title>
-  <meta name="description" content="최고를 경험한 사람들을 연결합니다. 그 연결이 세상을 바꾸는 임팩트가 됩니다." />
-  <meta property="og:title" content="Charles Chang — Relationship Alchemist" />
-  <meta property="og:description" content="최고를 경험한 사람들을 연결합니다. 그 연결이 세상을 바꾸는 임팩트가 됩니다." />
+  <title>찰스 장 — 마인드 교육 강연</title>
+  <meta name="description" content="교육은 끝났는데, 왜 사람은 그대로일까요? 재정 전문가·선교사·창업가, 세 번의 삶에서 직접 부수고 다시 세운 순서를 나누는 마인드 교육 강연." />
+  <meta property="og:title" content="찰스 장 — 마인드 교육 강연" />
+  <meta property="og:description" content="교육은 끝났는데, 왜 사람은 그대로일까요? 의지가 아니라 패러다임의 문제입니다." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://charles-page.onrender.com" />
-  <meta property="og:image" content="https://charles-page.onrender.com/profile.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Charles Chang — Relationship Alchemist" />
-  <meta name="twitter:description" content="최고를 경험한 사람들을 연결합니다. 그 연결이 세상을 바꾸는 임팩트가 됩니다." />
-  <meta name="twitter:image" content="https://charles-page.onrender.com/profile.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <meta property="og:image" content="https://charles-page.onrender.com/bg-audience.jpg" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style-v2.css?v=1" />
+  <link rel="stylesheet" href="style-v3.css?v=1" />
 </head>
 <body>
 
-<!-- HEADER -->
 <header id="top">
   <div class="container">
-    <a href="#top" class="site-name">Charles Chang <em>Relationship Alchemist</em></a>
+    <a href="#top" class="site-name">Charles Chang <em>Mind Education</em></a>
     <nav>
-      <a href="#about">찰스소개</a>
-      <a href="#brands"><span class="ko">브랜드</span><span class="en">Brands</span></a>
-      <a href="#mastermind"><span class="ko">결</span><span class="en">Gyul</span></a>
-      <a href="#playground"><span class="ko">앱</span><span class="en">Apps</span></a>
-      <a href="#thoughts"><span class="ko">단상</span><span class="en">Thoughts</span></a>
-      <a href="#newsletter" class="nav-cta"><span class="ko">구독하기</span><span class="en">Subscribe</span></a>
+      <a href="#topics">강연 주제</a>
+      <a href="#about">찰스 장</a>
+      <a href="#speaking">강연 이력</a>
+      <a href="#mastermind">결</a>
+      <a href="#contact" class="nav-cta">섭외 문의</a>
     </nav>
-    <div class="lang-toggle">
-      <button class="lang-btn" data-active="ko" onclick="setLang('ko')">KO</button>
-      <span class="lang-sep">·</span>
-      <button class="lang-btn" data-active="en" onclick="setLang('en')">EN</button>
-    </div>
     <button class="nav-hamburger" id="navHamburger" aria-label="메뉴" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
-
-<!-- MOBILE NAV -->
 <div class="nav-mobile" id="navMobile">
-  <a href="#about" onclick="closeMobileNav()"><span class="ko">찰스소개</span><span class="en">About</span></a>
-  <a href="#brands" onclick="closeMobileNav()"><span class="ko">브랜드</span><span class="en">Brands</span></a>
-  <a href="#mastermind" onclick="closeMobileNav()"><span class="ko">결 마스터마인드</span><span class="en">Gyul</span></a>
-  <a href="#playground" onclick="closeMobileNav()"><span class="ko">앱</span><span class="en">Apps</span></a>
-  <a href="#thoughts" onclick="closeMobileNav()"><span class="ko">단상</span><span class="en">Thoughts</span></a>
-  <a href="#newsletter" onclick="closeMobileNav()" class="nav-mobile-cta"><span class="ko">뉴스레터 구독</span><span class="en">Subscribe</span></a>
+  <a href="#topics" onclick="closeMobileNav()">강연 주제</a>
+  <a href="#about" onclick="closeMobileNav()">찰스 장</a>
+  <a href="#speaking" onclick="closeMobileNav()">강연 이력</a>
+  <a href="#mastermind" onclick="closeMobileNav()">결 마스터마인드</a>
+  <a href="#contact" onclick="closeMobileNav()" class="nav-mobile-cta">섭외 문의</a>
 </div>
 
-<!-- HERO -->
+<!-- ① 첫 화면 -->
 <section id="hero">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
-
   <div class="hero-content">
-    <p class="hero-eyebrow">
-      <span class="ko">관계의 연금술사</span>
-      <span class="en">Relationship Alchemist</span>
-    </p>
-
+    <p class="hero-eyebrow">마인드 교육 강연 · 찰스 장</p>
     <h1 class="hero-title">
-      <span class="ko"><span class="h1-light">사람을 연결하고</span><br><strong class="h1-bold">관계를 바꿉니다.</strong></span>
-      <span class="en"><span class="h1-light">Connecting People,</span><br><strong class="h1-bold">Changing Lives.</strong></span>
+      <span class="h1-light">교육은 끝났는데,</span>
+      <strong class="h1-bold">왜 사람은 <mark>그대로</mark>일까요?</strong>
     </h1>
-
-    <p class="hero-subtitle">
-      <span class="ko">최고를 경험한 사람들을 연결합니다.<br>그 연결이 세상을 바꾸는 임팩트가 됩니다.</span>
-      <span class="en">I connect people who have reached the top.<br>That connection becomes the impact that changes the world.</span>
-    </p>
-
+    <p class="hero-subtitle">의지가 약해서가 아닙니다. 새로 배운 것이 옛 패러다임 위에 쌓였을 뿐입니다.<br>재정 전문가, 선교사, 창업가 — 세 번의 삶에서 직접 부수고 다시 세운 순서를 나눕니다.</p>
     <div class="hero-cta-row">
-      <a href="#" class="hero-btn hero-btn-primary" onclick="openMembershipModal(event)">
-        <span class="ko">결 멤버십 알아보기</span>
-        <span class="en">Join Gyul</span>
-        <span class="hero-btn-arrow">→</span>
-      </a>
-      <a href="#newsletter" class="hero-btn hero-btn-secondary">
-        <span class="ko">뉴스레터 구독</span>
-        <span class="en">Subscribe</span>
-      </a>
-    </div>
-
-    <div class="hero-scroll">
-      <span class="hero-scroll-label"><span class="ko">스크롤</span><span class="en">Scroll</span></span>
-      <span class="hero-scroll-line"></span>
+      <a href="#contact" class="hero-btn hero-btn-primary">강연 섭외 문의 <span class="hero-btn-arrow">→</span></a>
+      <a href="#topics" class="hero-btn hero-btn-secondary">강연 주제 보기</a>
     </div>
   </div>
 </section>
 
-<!-- STATS BAR -->
+<!-- 숫자 띠 -->
 <div class="stats-bar">
   <div class="container">
-    <div class="stat"><strong><span class="count-num" data-count="18">0</span><span class="ko">년</span><span class="en">yrs</span></strong> <span class="ko">미국·동남아 NGO</span><span class="en">US/SE Asia NGO</span></div>
-    <div class="divider-dot">·</div>
-    <div class="stat"><strong><span class="count-num" data-count="10">0</span><span class="ko">년</span><span class="en">yrs</span></strong> <span class="ko">창업 여정</span><span class="en">Entrepreneurship</span></div>
-    <div class="divider-dot">·</div>
-    <div class="stat"><strong><span class="count-num" data-count="170">0</span><span class="ko">개국</span><span class="en"> countries</span></strong> <span class="ko">제품 발송</span><span class="en">shipped</span></div>
-    <div class="divider-dot">·</div>
-    <div class="stat"><strong><span class="count-num" data-count="2">0</span><span class="ko">권</span><span class="en"> books</span></strong> <span class="ko">저서</span><span class="en">published</span></div>
+    <div class="stat"><span class="num">100억<small>+</small></span> 누적 매출 (2016~2026.10)</div>
+    <div class="stat"><span class="num">20만<small>개+</small></span> 쥬얼아이스 판매</div>
+    <div class="stat"><span class="num">14억</span> 와디즈 누적 펀딩</div>
+    <div class="stat"><span class="num">1,500<small>명</small></span> 한 번의 강연 청중</div>
   </div>
 </div>
 
-<!-- ABOUT -->
+<!-- ② 고민 -->
+<section id="pain" class="sec">
+  <div class="container">
+    <p class="section-label">이런 장면, 익숙하시죠?</p>
+    <h2>배운 건 많은데,<br><mark>달라진 건 없습니다.</mark></h2>
+    <ul class="pain-list">
+      <li><b>01</b>교육 날엔 모두 고개를 끄덕였는데, 일주일 뒤엔 원래 방식으로 일합니다.</li>
+      <li><b>02</b>좋은 책과 강의를 수십 개 들었지만, 아는 것과 사는 것이 다릅니다.</li>
+      <li><b>03</b>새해마다 계획을 바꾸는데, 연말엔 같은 자리에 서 있습니다.</li>
+      <li><b>04</b>동기부여는 사흘 갑니다. 그다음엔 원래대로 돌아갑니다.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ③ 원인 다시 보기 -->
+<section id="reframe" class="sec">
+  <div class="container reframe-grid">
+    <div>
+      <p class="section-label">계획이 아니라 기둥</p>
+      <h2>리모델링은<br><mark>새 집이 아닙니다.</mark></h2>
+      <p>벽지를 바꾸고 가구를 바꿔도 기둥이 같으면 같은 집입니다. 새 계획, 새 습관, 새 목표를 올려도 "이렇게 살아야 안전하다"는 <b>내가 세운 적 없는 기둥</b>이 그대로면 같은 자리로 돌아옵니다. 그 기둥을 <b>패러다임</b>이라고 부릅니다.</p>
+      <p>저는 10년 동안 투명한 얼음을 만들었습니다. 물을 급하게 얼리면 불순물이 안에 갇혀 뿌예집니다. 한 방향으로 천천히 얼려야 불순물이 <b>밖으로 밀려나며</b> 투명해집니다.</p>
+      <p>사람의 변화도 같습니다. 빼는 게 아니라, 순서대로 밀어내는 것입니다.</p>
+    </div>
+    <figure class="ice-card">
+      <img src="https://jewelice.kr/web/product/medium/202602/6874f582c3a5e30a1131f2cf47c919e6.jpg" alt="쥬얼아이스 투명얼음" />
+      <figcaption>쥬얼아이스 — 10년째 만들고 있는 투명얼음</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ④ 강연 주제 -->
+<section id="topics" class="sec">
+  <div class="container">
+    <p class="section-label">강연 주제</p>
+    <h2>바뀌지 않는 이유부터<br>다시 봅니다.</h2>
+    <div class="topic-grid">
+      <article class="topic"><span class="no">01</span><h3>왜 나는<br>바뀌지 않는가</h3><p>교육을 받아도 바뀌지 못하는 이유. "아는 것이 사는 것을 대신할 때" 일어나는 일.</p></article>
+      <article class="topic"><span class="no">02</span><h3>패러다임이란<br>무엇인가</h3><p>내 안의 보이지 않는 설계도. 나와 패러다임의 싸움 — 왜 결심은 지고 습관은 이기는가.</p></article>
+      <article class="topic"><span class="no">03</span><h3>성장할 때, 안에서<br>진짜 일어나는 일</h3><p>두려움의 벽 앞에서 멈추는 이유와, 그 벽을 넘는 순서.</p></article>
+    </div>
+    <div class="flow"><span>뽑다</span><i>→</i><span>허물다</span><i>→</i><span>갈다</span><i>→</i><span>심다</span><i>→</i><span>세우다</span></div>
+    <p class="flow-note">새로 심기 전에, 묵은 땅부터 갈아엎는 순서. 세 주제는 한 강연 안에서 이어서도 다룹니다.</p>
+  </div>
+</section>
+
+<!-- ⑤ 세 번의 삶 -->
 <section id="about">
   <div class="container">
-
     <div class="about-intro">
-      <p class="section-label">STORY</p>
-      <h2>
-        <span class="ko">하나의 질문이<br>나를 세 번 만들었다</span>
-        <span class="en">One Question<br>Made Me Three Times</span>
-      </h2>
-      <p class="lead">
-        <span class="ko">"어떻게 하면 사람들이<br>자신이 원하는 삶을 자유롭고 행복하게 살 수 있을까."<br><br>이 질문 앞에서 나는 세 번 다시 시작했습니다.</span>
-        <span class="en">"How can people live the life they truly want—<br>freely and fully."<br><br>Facing this question, I started over three times.</span>
-      </p>
+      <p class="section-label">왜 찰스 장인가</p>
+      <h2>세 번 무너지고,<br><mark>세 번 다시 지은</mark> 사람</h2>
     </div>
-
     <div class="chapters">
-
       <div class="chapter-row">
         <div class="chapter-label">01</div>
         <div class="chapter-content">
-          <h3><span class="ko">섬기는 사람</span><span class="en">The Servant</span></h3>
-          <p>
-            <span class="ko">18년, 미국에서 살았습니다.<br>
-재정이 무너진 사람들 곁에 앉았고,<br>
-동남아에서 가장 낮은 곳을 걸었습니다.<br>
-<br>
-처음 알았습니다.<br>
-사람에게 필요한 건 정답이 아니라는 것을.<br>
-곁에 있어주는 사람이라는 것을.</span>
-            <span class="en">18 years in America.<br>
-I sat with people when their finances collapsed,<br>
-and walked the lowest places in Southeast Asia.<br>
-<br>
-First, I understood—<br>
-what people need isn't the right answer.<br>
-It's someone who stays.</span>
-          </p>
+          <h3>미국의 재정 전문가</h3>
+          <p>금융회사 부사장까지 올라 성공했습니다.<br>그런데 그때 저는 108kg에 매일 술을 마셨습니다.<br><span class="hl">겉은 성공했는데, 내가 누군지 몰랐습니다.</span></p>
         </div>
       </div>
-
       <div class="chapter-row">
         <div class="chapter-label">02</div>
         <div class="chapter-content">
-          <h3><span class="ko">만드는 사람</span><span class="en">The Builder</span></h3>
-          <p>
-            <span class="ko">2016년, 동남아에서 하나를 목격했습니다.<br>
-더러운 얼음이 사람을 병들게 한다는 것을.<br>
-<br>
-그 장면이 나를 창업가로 만들었습니다.<br>
-<br>
-10년.<br>
-크라우드펀딩 누적 10억.<br>
-세계 170개국.<br>
-<br>
-두 번째로 알았습니다.<br>
-생각한 것은 현실이 될 수 있다는 것을.</span>
-            <span class="en">In 2016, I witnessed one thing in Southeast Asia.<br>
-Dirty ice was making people sick.<br>
-<br>
-That moment made me an entrepreneur.<br>
-<br>
-10 years.<br>
-Over 1 billion KRW in crowdfunding.<br>
-Products in 170 countries.<br>
-<br>
-Second, I learned—<br>
-what you think can become real.</span>
-          </p>
+          <h3>선교사</h3>
+          <p>2008년 금융위기 뒤 한국으로 돌아와, 8년 동안 선교사로<br>동남아와 아프리카의 가장 낮은 곳을 걸었습니다.<br>인도 오지의 한여름 텐트에서 1,500명이 세 시간 넘게 강의를 듣던 날,<br><span class="hl">사람의 삶이 바뀌는 순간</span>을 처음 봤습니다.</p>
         </div>
       </div>
-
       <div class="chapter-row">
         <div class="chapter-label">03</div>
         <div class="chapter-content">
-          <h3><span class="ko">연결하는 사람</span><span class="en">The Connector</span></h3>
-          <p>
-            <span class="ko">10년이 지나, 세 번째가 보였습니다.<br>
-<br>
-세상을 바꾸는 건 아이디어가 아닙니다.<br>
-아이디어를 가진 사람들이<br>
-서로를 만날 때, 세상이 바뀝니다.<br>
-<br>
-지금 나는 그 연결을 만듭니다.<br>
-이것이 나의 세 번째 삶입니다.</span>
-            <span class="en">10 years later, I saw the third thing.<br>
-<br>
-It's not ideas that change the world.<br>
-It's people with ideas—<br>
-finding each other—that do.<br>
-<br>
-Now I build those connections.<br>
-This is my third life.</span>
-          </p>
+          <h3>창업가</h3>
+          <p>2014년 밥 프록터의 Thinking Into Results로 제 패러다임부터 다시 세웠고,<br>2016년 맨손으로 창업했습니다. 올해로 10년입니다.</p>
         </div>
       </div>
+    </div>
 
+    <div class="applied" id="brands">
+      <h3>배운 이론을, 제 사업에 먼저 써 봤습니다.</h3>
+      <p>막상 사업을 해 보니 머리로 아는 것만으로는 안 되는 이유가 보였습니다. 생각지 못한 세금 문제, 사람 문제, 주변의 수많은 변수. 그 이론을 제 회사와 컨설팅 현장에 직접 적용하며 부딪히고 다듬었습니다. 그래서 제 강연은 <b>현실에서 한 번 깨져 본 이론</b>입니다.</p>
+      <div class="process"><span>제품 기획</span><span>금형</span><span>공장</span><span>해외 발주</span><span>수입·수출</span><span>판매</span></div>
+      <div class="brand-mini">
+        <div><img src="https://jewelice.kr/web/product/medium/202602/6874f582c3a5e30a1131f2cf47c919e6.jpg" alt="쥬얼아이스" /><b>쥬얼아이스</b><small>투명얼음</small></div>
+        <div><img src="https://jewelice.kr/web/product/medium/202602/96c95255e3a9e6d49e6d9798d3b90ed1.jpg" alt="아블러" /><b>아블러</b><small>홈바·제빙</small></div>
+        <div><img src="https://jewelice.kr/web/product/medium/202602/7cce638ba474c45755fac89ca0a4b9bc.jpg" alt="아블러제로" /><b>아블러제로</b><small>주방용품</small></div>
+        <div><img src="naengmyeon.jpg" alt="한반도랭면" /><b>한반도 키친</b><small>간편식 평양냉면</small></div>
+        <div><div class="ph">오미엘</div><b>오미엘</b><small>퍼스널 가구·홈케어</small></div>
+      </div>
+      <p style="margin-top:20px">와디즈·킥스타터·마쿠아케로 국내외 펀딩, 해외에서만 25만 달러. 한반도랭면은 2018년 와디즈 오픈 15분 만에 목표 300%를 넘겼습니다.<br>마인드 교육을 하는 사람 중 <b>공장 바닥과 세금 고지서를 아는 사람</b>은 많지 않습니다.</p>
     </div>
   </div>
 </section>
 
-<!-- BOOKS -->
-<section id="books">
+<!-- ⑦ 강연 이력 · 진행 -->
+<section id="speaking" class="sec">
   <div class="container">
-    <p class="section-label"><span class="ko">저서</span><span class="en">Books</span></p>
+    <p class="section-label">강연 이력</p>
+    <h2>현장에서 계속<br><mark>말해 왔습니다.</mark></h2>
+    <div class="speak-grid">
+      <div>
+        <figure class="speak-photo"><img src="bg-stage.jpg" alt="국회의원회관 출판기념회 무대에서 강연하는 찰스 장" /><figcaption>2023.6.18 국회의원회관 · 100인 100권 출판 프로젝트 출판기념회</figcaption></figure>
+        <figure class="speak-photo"><img src="bg-audience.jpg" alt="출판기념회 청중 앞의 찰스 장" /></figure>
+      </div>
+      <div>
+        <ul class="venue">
+          <li><b>창업진흥원</b><span>2021 실전창업교육 — 스타트업 마케팅 전략 · 크라우드펀딩의 이해와 실습</span></li>
+          <li><b>인사이트플랫폼</b><span>HMR 유통마케팅 과정 2기·3기 (2021)</span></li>
+          <li><b>서울먹거리창업센터</b><span>강의·멘토링 (2021)</span></li>
+          <li><b>푸드테크 창업자 특강</b><span>2021</span></li>
+          <li><b>경희대학교</b><span>창업 강연 「최고의 나는 이미 내 안에 잠자고 있다」 (2023)</span></li>
+          <li><b>인도 ILO 팀</b><span>영어 강연 (2023)</span></li>
+          <li><b>와디즈</b><span>크라우드펀딩 강연</span></li>
+          <li><b>인도 오지 텐트 강연</b><span>청중 1,500명</span></li>
+        </ul>
+        <table class="spec">
+          <tr><th>시간</th><td>1시간 기본 강연부터 2~3시간 심화 과정까지 (최대 4시간)</td></tr>
+          <tr><th>방식</th><td>오프라인 · 온라인 모두 가능 · <b>영어 강연 가능</b></td></tr>
+          <tr><th>대상</th><td>기업 임직원 · 창업가·소상공인 교육 · 지자체·공공기관 · 대학</td></tr>
+          <tr><th>순서</th><td>문의 → 짧은 통화로 대상·목표 확인 → 맞춤 구성안 → 강연</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑧ FAQ -->
+<section id="faq" class="sec" style="background:var(--bg)">
+  <div class="container">
+    <p class="section-label">자주 묻는 것</p>
+    <h2>섭외 전에<br>많이 물으시는 것</h2>
+    <div class="faq">
+      <details open><summary>종교 강연인가요?</summary><p>아닙니다. 선교사로 일한 시간은 제 이야기의 일부이고, 강연은 누구나 들을 수 있는 마인드 교육입니다.</p></details>
+      <details><summary>비용은 어떻게 되나요?</summary><p>대상·인원·시간·지역에 따라 다릅니다. 문의 주시면 구성안과 함께 안내드립니다.</p></details>
+      <details><summary>온라인이나 영어로도 되나요?</summary><p>네, 둘 다 가능합니다. 미국에서 18년을 살았습니다.</p></details>
+      <details><summary>시간은 얼마나 필요한가요?</summary><p>1시간 강연부터 4시간 워크숍까지 맞춥니다.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ⑩ 쓰는 사람 -->
+<section id="books" class="sec">
+  <div class="container">
+    <p class="section-label">쓰는 사람</p>
     <div class="books-row">
-      <div class="book">
-        <a class="book-cover book-cover-img book-link" href="https://product.kyobobook.co.kr/detail/S000202293986" target="_blank" rel="noopener">
-          <img src="https://image.yes24.com/goods/118955277/XL" alt="잠자는 슈퍼맨을 깨워라" onerror="this.parentElement.classList.add('img-error')" />
-          <div class="book-hover-overlay"><span>교보문고에서 보기 →</span></div>
-        </a>
-        <div class="book-info">
-          <h3>《<span class="ko">잠자는 슈퍼맨을 깨워라</span><span class="en">Awakening the Superman</span>》</h3>
-          <p>2023</p>
-        </div>
-      </div>
-      <div class="book">
-        <a class="book-cover book-cover-img book-link" href="https://product.kyobobook.co.kr/detail/S000202610449" target="_blank" rel="noopener">
-          <img src="https://image.yes24.com/goods/119266727/XL" alt="창업전에 0에서 10억까지" onerror="this.parentElement.classList.add('img-error')" />
-          <div class="book-hover-overlay"><span>교보문고에서 보기 →</span></div>
-        </a>
-        <div class="book-info">
-          <h3>《<span class="ko">창업전에 0에서 10억까지</span><span class="en">From Zero to 1 Billion Before Launch</span>》</h3>
-          <p>2023</p>
-        </div>
-      </div>
       <div class="book writing">
-        <div class="book-cover book-cover-3">
-          <div class="cover-body cover-body-writing">
-            <span class="cover-writing-label"><span class="ko">집필 중</span><span class="en">Writing</span></span>
-            <p class="cover-title"><span class="ko">마인드셋<br>×<br>기업가 정신</span><span class="en">Mindset<br>×<br>Entrepreneurship</span></p>
-            <span class="cover-author">Charles Chang · 2026</span>
-          </div>
-        </div>
-        <div class="book-info">
-          <h3><span class="ko">마인드셋 × 기업가 정신</span><span class="en">Mindset × Entrepreneurship</span></h3>
-          <p><span class="ko">집필 중 · 2026</span><span class="en">In progress · 2026</span></p>
-        </div>
+        <div class="book-cover book-cover-3"><div class="cover-body cover-body-writing">
+          <span class="cover-writing-label">집필 중</span>
+          <p class="cover-title">투명해지는 법</p>
+          <span class="cover-author">Charles Chang · 2026</span>
+        </div></div>
+        <div class="book-info"><h3>「투명해지는 법」</h3><p>잠재의식을 깨워 나를 쓰는 법 · 집필 중</p></div>
+      </div>
+      <div class="book">
+        <a class="book-cover book-cover-img book-link" href="https://product.kyobobook.co.kr/detail/S000202293986" target="_blank" rel="noopener"><img src="https://image.yes24.com/goods/118955277/XL" alt="잠자는 슈퍼맨을 깨워라" /></a>
+        <div class="book-info"><h3>2023년, AI로 먼저 써 본 책</h3><p>《잠자는 슈퍼맨을 깨워라》 — 챗GPT가 막 나왔을 때 직접 만들어 본 실험</p></div>
+      </div>
+      <div class="book">
+        <a class="book-cover book-cover-img book-link" href="https://product.kyobobook.co.kr/detail/S000202610449" target="_blank" rel="noopener"><img src="https://image.yes24.com/goods/119266727/XL" alt="창업전에 0에서 10억까지" /></a>
+        <div class="book-info"><h3>같은 해, 두 번째 실험</h3><p>《창업전에 0에서 10억까지》 — 새 도구 앞에서 먼저 해 보는 사람</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BRANDS -->
-<section id="brands">
-  <div class="container">
-    <p class="section-label"><span class="ko">브랜드</span><span class="en">Brands</span></p>
-    <h2><span class="ko">생각이 현실이 된 것들</span><span class="en">Ideas Made Real</span></h2>
-    <div class="brand-list">
-
-      <a class="brand-item brand-item-link" href="https://jewelice.kr" target="_blank" rel="noopener">
-        <div class="brand-thumb">
-          <img src="https://jewelice.kr/web/product/medium/202602/6874f582c3a5e30a1131f2cf47c919e6.jpg" alt="쥬얼아이스 듀오메이커" />
-        </div>
-        <div class="brand-content">
-          <div class="brand-header">
-            <span class="brand-name"><span class="ko">쥬얼아이스</span><span class="en">JewelIce</span></span>
-            <span class="brand-tag">D2C · <span class="ko">제빙</span><span class="en">Ice Maker</span></span>
-          </div>
-          <p><span class="ko">더러운 얼음 하나를 목격한 뒤 만들었습니다. 세상에서 가장 투명한 얼음. 크라우드펀딩 10억+, 170개국.</span><span class="en">Born from witnessing dirty ice. The world's clearest ice. 1B+ KRW in crowdfunding, 170 countries.</span></p>
-        </div>
-      </a>
-
-      <a class="brand-item brand-item-link" href="https://jewelice.kr/product/list_thumb.html?cate_no=74" target="_blank" rel="noopener">
-        <div class="brand-thumb">
-          <img src="https://jewelice.kr/web/product/medium/202602/96c95255e3a9e6d49e6d9798d3b90ed1.jpg" alt="ablr 아이스메이커" />
-        </div>
-        <div class="brand-content">
-          <div class="brand-header">
-            <span class="brand-name"><span class="ko">ablr (아블러)</span><span class="en">ablr</span></span>
-            <span class="brand-tag"><span class="ko">프리미엄</span><span class="en">Premium</span></span>
-          </div>
-          <p><span class="ko">프리미엄 홈바 경험. 텀블러 + 제빙 일체형. 집에서 바텐더처럼.</span><span class="en">Premium home bar experience. Tumbler + ice maker in one. Like a bartender at home.</span></p>
-        </div>
-      </a>
-
-      <a class="brand-item brand-item-link" href="https://jewelice.kr/product/list_thumb.html?cate_no=70" target="_blank" rel="noopener">
-        <div class="brand-thumb">
-          <img src="https://jewelice.kr/web/product/medium/202602/7cce638ba474c45755fac89ca0a4b9bc.jpg" alt="ablr Zero 텀블러" />
-        </div>
-        <div class="brand-content">
-          <div class="brand-header">
-            <span class="brand-name">ablr Zero</span>
-            <span class="brand-tag"><span class="ko">친환경</span><span class="en">Eco</span></span>
-          </div>
-          <p><span class="ko">친환경 경량 라인. 탄소절감을 실천하는 프리미엄 선택.</span><span class="en">Eco-friendly lightweight line. A premium choice that reduces carbon footprint.</span></p>
-        </div>
-      </a>
-
-      <div class="brand-item">
-        <div class="brand-thumb">
-          <img src="naengmyeon.jpg" alt="한반도 냉면" />
-        </div>
-        <div class="brand-content">
-          <div class="brand-header">
-            <span class="brand-name"><span class="ko">한반도 냉면</span><span class="en">Hanban-do Naengmyeon</span></span>
-            <span class="brand-tag"><span class="ko">푸드 · D2C</span><span class="en">Food · D2C</span></span>
-          </div>
-          <p><span class="ko">평양냉면 간편식 브랜드. 한국 전통의 맛을 집에서.</span><span class="en">Pyongyang cold noodle meal kit brand. Traditional Korean taste, at home.</span></p>
-        </div>
-      </div>
-
-      <div class="brand-item brand-item-mif">
-        <div class="brand-content">
-          <div class="brand-header">
-            <span class="brand-name">MIF</span>
-            <span class="brand-tag"><span class="ko">기후테크</span><span class="en">Climate Tech</span></span>
-          </div>
-          <p><span class="ko">Micro Ice Factory. 개발도상국 냉장 인프라 혁신. 소셜 임팩트.</span><span class="en">Micro Ice Factory. Revolutionizing cold chain infrastructure in developing countries. Social impact.</span></p>
-        </div>
-        <div class="mif-deck">
-          <div class="mif-deck-track" id="mifTrack">
-            <img src="mif-slides/slide-01.jpg" class="mif-deck-slide" alt="MIF 슬라이드 1" loading="eager" />
-            <img src="mif-slides/slide-02.jpg" class="mif-deck-slide" alt="MIF 슬라이드 2" loading="lazy" />
-            <img src="mif-slides/slide-03.jpg" class="mif-deck-slide" alt="MIF 슬라이드 3" loading="lazy" />
-            <img src="mif-slides/slide-04.jpg" class="mif-deck-slide" alt="MIF 슬라이드 4" loading="lazy" />
-            <img src="mif-slides/slide-05.jpg" class="mif-deck-slide" alt="MIF 슬라이드 5" loading="lazy" />
-            <img src="mif-slides/slide-06.jpg" class="mif-deck-slide" alt="MIF 슬라이드 6" loading="lazy" />
-            <img src="mif-slides/slide-07.jpg" class="mif-deck-slide" alt="MIF 슬라이드 7" loading="lazy" />
-            <img src="mif-slides/slide-08.jpg" class="mif-deck-slide" alt="MIF 슬라이드 8" loading="lazy" />
-            <img src="mif-slides/slide-09.jpg" class="mif-deck-slide" alt="MIF 슬라이드 9" loading="lazy" />
-            <img src="mif-slides/slide-10.jpg" class="mif-deck-slide" alt="MIF 슬라이드 10" loading="lazy" />
-            <img src="mif-slides/slide-11.jpg" class="mif-deck-slide" alt="MIF 슬라이드 11" loading="lazy" />
-          </div>
-          <div class="mif-deck-nav">
-            <button class="mif-btn" id="mifPrevBtn" onclick="mifPrev()">&#8592;</button>
-            <span class="mif-deck-count" id="mifCount">1 / 11</span>
-            <button class="mif-btn" id="mifNextBtn" onclick="mifNext()">&#8594;</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- MASTERMIND -->
+<!-- ⑪ 결 -->
 <section id="mastermind">
   <div class="container">
     <div class="mastermind-inner">
       <div class="mastermind-text">
-        <p class="section-label"><span class="ko">연결</span><span class="en">Connection</span></p>
-        <h2><span class="ko">마스터마인딩 그룹<br><em>"결"</em></span><span class="en">Mastermind Group<br><em>"Gyul"</em></span></h2>
-        <p>
-          <span class="ko">세 번째 삶에서 만든 공간입니다.<br>각 분야에서 최고를 경험한 사람들이<br>처음으로 서로를 만나는 곳.</span>
-          <span class="en">This is what I built in my third life.<br>A space where people who've reached the top of their field<br>meet each other for the first time.</span>
-        </p>
-        <p>
-          <span class="ko">시간이 부족한 사람들이 서로의 힘으로 더 멀리 갑니다.<br>자유롭고 행복하게, 세상에 흔적을 남기고 싶은 사람들을 위해.</span>
-          <span class="en">People with limited time go further through each other.<br>For those who want to live freely, happily, and leave their mark.</span>
-        </p>
-        <a href="#" class="btn-outline" onclick="openMembershipModal(event)">
-          <span class="ko">멤버십 알아보기 →</span>
-          <span class="en">Learn About Membership →</span>
-        </a>
+        <p class="section-label">함께하는 모임</p>
+        <h2>마스터마인드<br><em>"결"</em></h2>
+        <p>각 분야에서 자기 길을 가는 사람들이<br>한 달에 한 번, 열 명 이하로 모입니다. 초대제로 운영합니다.</p>
+        <a href="#" class="btn-outline" onclick="openMembershipModal(event)">결 알아보기 →</a>
       </div>
-      <div class="mastermind-quote">
-        <blockquote>
-          <span class="ko">"혼자 가면 빠르고,<br>함께 가면 멀리 간다."</span>
-          <span class="en">"Go alone and go fast.<br>Go together and go far."</span>
-        </blockquote>
+      <div class="mastermind-quote"><blockquote>"혼자 가면 빠르고,<br>함께 가면 멀리 간다."</blockquote></div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑫ 섭외 문의 -->
+<section id="contact" class="sec">
+  <div class="container">
+    <p class="section-label" style="display:table;margin:0 auto">섭외 문의</p>
+    <h2>바뀌지 않는 이유부터<br>다시 보는 한 시간.</h2>
+    <p class="lead" style="color:var(--muted)">기관·일정·인원을 남겨 주시면 짧은 통화로 대상과 목표를 확인한 뒤 구성안을 보내드립니다.</p>
+    <form class="inq" onsubmit="handleSpeakingInquiry(event)">
+      <label>기관·회사명<input name="org" required /></label>
+      <label>담당자 이름<input name="name" required /></label>
+      <label>연락처 (전화 또는 이메일)<input name="contact" required /></label>
+      <label>희망 일정<input name="when" placeholder="예: 12월 중순, 평일 오후" /></label>
+      <label>예상 인원<input name="size" placeholder="예: 40명" /></label>
+      <label>대상<select name="audience"><option>기업 임직원</option><option>창업가·소상공인</option><option>지자체·공공기관</option><option>대학·학생</option><option>기타</option></select></label>
+      <div class="full"><label>관심 주제</label>
+        <div class="chips">
+          <label><input type="checkbox" name="topic" value="왜 나는 바뀌지 않는가" /> 왜 나는 바뀌지 않는가</label>
+          <label><input type="checkbox" name="topic" value="패러다임이란 무엇인가" /> 패러다임이란 무엇인가</label>
+          <label><input type="checkbox" name="topic" value="성장할 때 일어나는 일" /> 성장할 때 일어나는 일</label>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- YOUTUBE -->
-<section id="youtube">
-  <div class="container">
-    <div class="youtube-row">
-      <div>
-        <p class="section-label">YouTube</p>
-        <h3><span class="ko">"인생은 개쌍마이웨이"</span><span class="en">"Life on My Own Terms"</span></h3>
-        <p><span class="ko">내가 배운 것들을 나눕니다.<br>창업, 자유, 그리고 사람에 대해.</span><span class="en">I share what I've learned.<br>About building, freedom, and people.</span></p>
-        <a href="https://www.youtube.com/@%EC%9D%B8%EC%83%9D%EC%9D%80%EA%B0%9C%EC%8C%8D%EB%A7%88%EC%9D%B4%EC%9B%A8%EC%9D%B4/shorts" target="_blank" rel="noopener" class="btn-outline">
-          <span class="ko">채널 보기 →</span>
-          <span class="en">View Channel →</span>
-        </a>
-      </div>
-      <a class="youtube-thumb youtube-thumb-link" href="https://www.youtube.com/watch?v=7c5GBVy__vA" target="_blank" rel="noopener">
-        <img src="yt-thumb.jpg" alt="너 아직도 포기 안해?" class="yt-thumb-img" />
-        <div class="yt-play-btn">
-          <svg viewBox="0 0 68 48" width="68" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="68" height="48" rx="8" fill="#FF0000" opacity="0.9"/>
-            <path d="M45 24L27 34V14L45 24Z" fill="white"/>
-          </svg>
-        </div>
-        <span class="yt-label"><span class="ko">너 아직도 포기 안해?</span><span class="en">Will You Give Up Already?</span></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- PLAYGROUND -->
-<section id="playground">
-  <div class="container">
-    <p class="section-label"><span class="ko">앱 놀이터</span><span class="en">Playground</span></p>
-    <h2 class="playground-title">
-      <span class="ko">생각하면, 그날 만든다.</span>
-      <span class="en">I think it. I build it. Same day.</span>
-    </h2>
-    <p class="playground-desc">
-      <span class="ko">언러닝과 마스터마인딩으로 태어난 것들.<br>코드를 몰라도 세상을 만들 수 있다는 증거.</span>
-      <span class="en">Things born from unlearning and masterminding.<br>Proof that you don't need to know code to build the world.</span>
-    </p>
-    <div class="app-grid">
-      <a href="https://conceptlab.onrender.com" target="_blank" rel="noopener" class="app-card">
-        <div class="app-preview">
-          <img src="app-conceptlab.jpg" alt="ConceptLab 미리보기" />
-          <div class="app-preview-overlay"><span class="ko">열어보기 →</span><span class="en">Open →</span></div>
-        </div>
-        <div class="app-card-inner">
-          <span class="app-num">01</span>
-          <h3 class="app-name">ConceptLab</h3>
-          <p class="app-desc">
-            <span class="ko">브랜드·제품·소통의 컨셉을 잡는 워크숍 도구.<br>컨셉수업 방법론을 AI로 구현했다.</span>
-            <span class="en">A workshop tool for finding brand, product, and communication concepts.<br>The ConceptClass methodology, powered by AI.</span>
-          </p>
-          <span class="app-link"><span class="ko">열기 →</span><span class="en">Open →</span></span>
-        </div>
-      </a>
-      <a href="https://kyeol.me" target="_blank" rel="noopener" class="app-card">
-        <div class="app-preview">
-          <img src="app-kyeol-poster.jpg" alt="결 Kyeol 미리보기 — 붓글씨 결+낙관" />
-          <div class="app-preview-overlay"><span class="ko">열어보기 →</span><span class="en">Open →</span></div>
-        </div>
-        <div class="app-card-inner">
-          <span class="app-num">02</span>
-          <h3 class="app-name">결 <span style="font-weight:300;font-size:0.8em;">Kyeol</span></h3>
-          <p class="app-desc">
-            <span class="ko">각 분야 최고들이 서로를 만나는 마스터마인드 플랫폼.<br>연결이 임팩트가 되는 공간.</span>
-            <span class="en">A mastermind platform where top people from different fields meet.<br>Where connection becomes impact.</span>
-          </p>
-          <span class="app-link"><span class="ko">열기 →</span><span class="en">Open →</span></span>
-        </div>
-      </a>
-      <a href="https://macdosa.com" target="_blank" rel="noopener" class="app-card">
-        <div class="app-preview">
-          <img src="app-macdosa.png" alt="맥도사 미리보기" />
-          <div class="app-preview-overlay"><span class="ko">열어보기 →</span><span class="en">Open →</span></div>
-        </div>
-        <div class="app-card-inner">
-          <span class="app-num">03</span>
-          <h3 class="app-name">맥도사</h3>
-          <p class="app-desc">
-            <span class="ko">애플 제품 AI 최저가 비교 서비스.<br>맥북·아이폰·아이패드, 지금 사야 할지 AI가 판단한다.</span>
-            <span class="en">AI-powered Apple product price comparison.<br>MacBook, iPhone, iPad — AI tells you when to buy.</span>
-          </p>
-          <span class="app-link"><span class="ko">열기 →</span><span class="en">Open →</span></span>
-        </div>
-      </a>
-      <a href="https://life-4160-weeks.charlesmaster.chatgpt.site" target="_blank" rel="noopener" class="app-card">
-        <div class="app-preview">
-          <img src="app-life-4160.svg" alt="나의 인생 4,160주 미리보기" />
-          <div class="app-preview-overlay"><span class="ko">열어보기 →</span><span class="en">Open →</span></div>
-        </div>
-        <div class="app-card-inner">
-          <span class="app-num">04</span>
-          <h3 class="app-name"><span class="ko">나의 인생 4,160주</span><span class="en">My Life in 4,160 Weeks</span></h3>
-          <p class="app-desc">
-            <span class="ko">한 칸은 한 주. 80년의 삶을 4,160칸으로 바라보는 인생 주간표.<br>생년월일을 넣고 A4로 인쇄해 매주 기록한다.</span>
-            <span class="en">One square, one week. See an 80-year life in 4,160 weeks.<br>Personalize it, print on A4, and mark every week.</span>
-          </p>
-          <span class="app-link"><span class="ko">열기 →</span><span class="en">Open →</span></span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- THOUGHTS -->
-<section id="thoughts">
-  <div class="container">
-    <p class="section-label"><span class="ko">단상</span><span class="en">Fragments</span></p>
-    <h2 class="thoughts-title">
-      <span class="ko">생각이 스치면, 기록한다.</span>
-      <span class="en">When a thought passes, I write it down.</span>
-    </h2>
-    <div class="thoughts-list" id="thoughtsList"></div>
-    <div class="thoughts-more">
-      <a href="thoughts.html" class="thoughts-more-btn">
-        <span class="ko">모든 단상 보기 →</span>
-        <span class="en">View All Fragments →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- 단상 쓰기 패널 -->
-<div id="thoughtWritePanel" class="write-panel">
-  <div class="write-panel-inner">
-    <button class="write-panel-close" onclick="closeWritePanel()">&times;</button>
-    <p class="modal-label">단상 쓰기</p>
-    <form class="write-form" onsubmit="submitThought(event)">
-      <input type="text" id="wTitleKo" placeholder="제목 (한국어)" required />
-      <input type="text" id="wTitleEn" placeholder="Title (English)" />
-      <textarea id="wBodyKo" placeholder="내용 (한국어)" rows="5" required></textarea>
-      <textarea id="wBodyEn" placeholder="Content (English)" rows="5"></textarea>
-      <button type="submit" class="modal-submit">올리기</button>
+      <label class="full">요청 사항<textarea name="note" rows="4" placeholder="강연 목적, 시간(1~4시간), 온라인·영어 여부 등"></textarea></label>
+      <button type="submit">섭외 문의 보내기</button>
     </form>
-  </div>
-</div>
-
-<!-- NEWSLETTER -->
-<section id="newsletter">
-  <div class="container">
-    <div class="newsletter-inner">
-      <div class="sub-counter-block">
-        <span class="sub-counter-num"><span class="count-num" data-count="284">0</span></span>
-        <span class="sub-counter-label"><span class="ko">명이 이미 읽고 있습니다</span><span class="en">people already reading</span></span>
-      </div>
-      <h2>
-        <span class="ko">생각이 생기면<br>공유합니다</span>
-        <span class="en">When I Think,<br>I Share</span>
-      </h2>
-      <p>
-        <span class="ko">매주 하나. 연결, 창업, 자유로운 삶에 대한 생각.</span>
-        <span class="en">Once a week. Thoughts on connection, building, and living free.</span>
-      </p>
-      <form class="sub-form" onsubmit="handleSubscribe(event)">
-        <input type="email" placeholder="이메일을 입력하세요" data-ko-placeholder="이메일을 입력하세요" data-en-placeholder="Enter your email" required />
-        <button type="submit"><span class="ko">구독하기</span><span class="en">Subscribe</span></button>
-      </form>
-    </div>
+    <p class="inq-note">이메일로도 받습니다 · <a href="mailto:charles@jewelice.kr">charles@jewelice.kr</a> · 남겨 주신 정보는 섭외 회신 목적으로만 씁니다.</p>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
-
-      <!-- Brand column -->
       <div class="footer-col footer-col--brand">
         <div class="footer-name">Charles Chang</div>
-        <div class="footer-tagline">
-          <span class="ko">생각을 현실로</span>
-          <span class="en">Think Into Real</span>
-        </div>
-        <p class="footer-desc">
-          <span class="ko">사람과 사람이 만날 때 일어나는 일을 믿습니다.<br>그 연결을 만드는 것이 나의 일입니다.</span>
-          <span class="en">I believe in what happens when the right people meet.<br>Creating those connections — that's my work.</span>
-        </p>
+        <div class="footer-tagline">생각을 현실로</div>
+        <p class="footer-desc">재정 전문가, 선교사, 창업가.<br>바뀌지 않던 사람이 실제로 바뀐 순서를 나눕니다.</p>
       </div>
-
-      <!-- Quick links column -->
       <div class="footer-col">
-        <h4 class="footer-heading">
-          <span class="ko">바로가기</span>
-          <span class="en">Navigate</span>
-        </h4>
+        <h4 class="footer-heading">바로가기</h4>
         <ul class="footer-nav">
-          <li><a href="#about"><span class="ko">찰스소개</span><span class="en">About Charles</span></a></li>
-          <li><a href="#brands"><span class="ko">브랜드</span><span class="en">Brands</span></a></li>
-          <li><a href="#mastermind"><span class="ko">결 마스터마인드</span><span class="en">Gyul Mastermind</span></a></li>
-          <li><a href="#newsletter"><span class="ko">구독하기</span><span class="en">Subscribe</span></a></li>
+          <li><a href="#topics">강연 주제</a></li>
+          <li><a href="#about">찰스 장</a></li>
+          <li><a href="#speaking">강연 이력</a></li>
+          <li><a href="#contact">섭외 문의</a></li>
         </ul>
       </div>
-
-      <!-- Contact column -->
       <div class="footer-col">
-        <h4 class="footer-heading">
-          <span class="ko">연락하기</span>
-          <span class="en">Contact</span>
-        </h4>
+        <h4 class="footer-heading">연락하기</h4>
         <ul class="footer-contact">
-          <li>
-            <a href="mailto:charles@jewelice.kr" class="footer-email">
-              charles@jewelice.kr
-            </a>
-          </li>
+          <li><a href="mailto:charles@jewelice.kr" class="footer-email">charles@jewelice.kr</a></li>
           <li class="footer-socials">
-            <a href="https://www.youtube.com/@%EC%9D%B8%EC%83%9D%EC%9D%80%EA%B0%9C%EC%8C%8D%EB%A7%88%EC%9D%B4%EC%9B%A8%EC%9D%B4/shorts" target="_blank" rel="noopener" class="footer-social-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
-              YouTube
-            </a>
-            <a href="https://www.linkedin.com/in/charles-chang-189353132/" target="_blank" rel="noopener" class="footer-social-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
-            </a>
-            <a href="https://www.instagram.com/thinkingintoreal/" target="_blank" rel="noopener" class="footer-social-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-              Instagram
-            </a>
-            <a href="https://www.facebook.com/charles.chang.146/" target="_blank" rel="noopener" class="footer-social-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              Facebook
-            </a>
+            <a href="https://www.instagram.com/thinkingintoreal/" target="_blank" rel="noopener" class="footer-social-btn">Instagram</a>
+            <a href="https://www.linkedin.com/in/charles-chang-189353132/" target="_blank" rel="noopener" class="footer-social-btn">LinkedIn</a>
+            <a href="https://www.youtube.com/@%EC%9D%B8%EC%83%9D%EC%9D%80%EA%B0%9C%EC%8C%8D%EB%A7%88%EC%9D%B4%EC%9B%A8%EC%9D%B4/shorts" target="_blank" rel="noopener" class="footer-social-btn">YouTube</a>
           </li>
-          <li>
-            <a href="https://jewelice.kr" target="_blank" rel="noopener" class="footer-brand-link">jewelice.kr</a>
-          </li>
+          <li><a href="https://jewelice.kr" target="_blank" rel="noopener" class="footer-brand-link">jewelice.kr</a></li>
         </ul>
       </div>
-
-    </div><!-- /footer-grid -->
-
-    <p class="footer-privacy">
-      <span class="ko">수집된 이메일은 뉴스레터 발송 목적으로만 사용되며 제3자에게 제공되지 않습니다.</span>
-      <span class="en">Your email is used solely for newsletter delivery and is never shared with third parties.</span>
-    </p>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Charles Chang</span>
-      <span class="footer-dot">·</span>
-      <span class="footer-copy">
-        <span class="ko">생각을 현실로</span>
-        <span class="en">Think Into Real</span>
-      </span>
     </div>
+    <div class="footer-bottom"><span class="footer-copy">© 2026 Charles Chang</span><span class="footer-dot">·</span><span class="footer-copy">생각을 현실로</span></div>
   </div>
 </footer>
 
-<!-- 결 멤버십 모달 -->
+<!-- 결 멤버십 모달 (기존 유지) -->
 <div id="membershipModal" class="modal-overlay" onclick="closeMembershipModal(event)">
   <div class="modal-box">
     <button class="modal-close" onclick="closeMembershipModal()">&times;</button>
-    <p class="modal-label"><span class="ko">연결</span><span class="en">Connection</span></p>
-    <h2 class="modal-title">
-      <span class="ko">결 멤버십 신청</span>
-      <span class="en">Apply for Gyul</span>
-    </h2>
-    <p class="modal-desc">
-      <span class="ko">각 분야 최고의 사람들이 처음으로 서로를 만나는 공간.<br>관심 있으시면 이름과 이메일을 남겨주세요.</span>
-      <span class="en">A space where top people meet for the first time.<br>Leave your name and email to learn more.</span>
-    </p>
+    <p class="modal-label">연결</p>
+    <h2 class="modal-title">결 멤버십 신청</h2>
+    <p class="modal-desc">각 분야에서 자기 길을 가는 사람들이 처음으로 서로를 만나는 공간.<br>관심 있으시면 이름과 이메일을 남겨주세요.</p>
     <ul class="modal-details">
-      <li><span class="ko">월 1회 정기 모임 · 소규모 10명 이하</span><span class="en">Monthly meeting · Max 10 members</span></li>
-      <li><span class="ko">초대제 운영 · 심사 후 참여 확정</span><span class="en">Invite-only · Selection required</span></li>
-      <li><span class="ko">각 분야 현역 최고만 참여</span><span class="en">Active top performers only</span></li>
+      <li>월 1회 정기 모임 · 소규모 10명 이하</li>
+      <li>초대제 운영 · 심사 후 참여 확정</li>
     </ul>
     <form class="modal-form" onsubmit="handleMembershipApply(event)">
-      <input type="text" id="memberName" placeholder="이름 / Name" required />
-      <input type="email" id="memberEmail" placeholder="이메일 / Email" required />
-      <button type="submit" class="modal-submit">
-        <span class="ko">신청하기</span>
-        <span class="en">Apply</span>
-      </button>
+      <input type="text" id="memberName" placeholder="이름" required />
+      <input type="email" id="memberEmail" placeholder="이메일" required />
+      <button type="submit" class="modal-submit">신청하기</button>
     </form>
-    <p class="modal-privacy">
-      <span class="ko">이메일은 결 모임 안내 외 다른 용도로 사용하지 않습니다.</span>
-      <span class="en">Your email will only be used for Gyul membership updates.</span>
-    </p>
+    <p class="modal-privacy">이메일은 결 모임 안내 외 다른 용도로 사용하지 않습니다.</p>
   </div>
 </div>
 
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-text"><strong>마인드 교육 강연 · 찰스 장</strong><span>1~4시간 · 온라인·영어 가능</span></div>
+  <a href="#contact">섭외 문의</a>
+</div>
+<script>addEventListener('scroll',()=>stickyCta.classList.toggle('show',scrollY>innerHeight*0.8&&contact.getBoundingClientRect().top>innerHeight),{passive:true})</script>
 <script src="script.js?v=11"></script>
 <script>
-// MIF 슬라이드쇼
-var mifCurrent = 0;
-var mifTotal = 11;
-function mifGoTo(n) {
-  mifCurrent = (n + mifTotal) % mifTotal;
-  document.getElementById('mifTrack').style.transform = 'translateX(-' + (mifCurrent * 100) + '%)';
-  document.getElementById('mifCount').textContent = (mifCurrent + 1) + ' / ' + mifTotal;
-  document.getElementById('mifPrevBtn').style.opacity = mifCurrent === 0 ? '0.3' : '1';
-  document.getElementById('mifNextBtn').style.opacity = mifCurrent === mifTotal - 1 ? '0.3' : '1';
+function handleSpeakingInquiry(e) {
+  e.preventDefault();
+  var f = e.target, btn = f.querySelector('button[type="submit"]');
+  var d = new FormData(f);
+  var params = new URLSearchParams({
+    type: 'speaking', org: d.get('org'), name: d.get('name'), contact: d.get('contact'),
+    when: d.get('when') || '', size: d.get('size') || '', audience: d.get('audience'),
+    topic: d.getAll('topic').join(', '), note: d.get('note') || '', date: new Date().toLocaleString('ko-KR')
+  });
+  btn.textContent = '전송 중...'; btn.disabled = true;
+  var done = function () { btn.textContent = '접수됐습니다 ✓ 곧 연락드리겠습니다'; btn.style.background = '#2d9e6b'; };
+  // 미리보기(file://)에서는 실제 시트로 보내지 않는다
+  if (location.protocol === 'file:' || !SHEET_URL) return done();
+  fetch(SHEET_URL + '?' + params.toString(), { mode: 'no-cors' }).finally(done);
 }
-function mifPrev() { mifGoTo(mifCurrent - 1); }
-function mifNext() { mifGoTo(mifCurrent + 1); }
-// 키보드 & 터치 지원
-document.addEventListener('keydown', function(e) {
-  var deck = document.querySelector('.mif-deck');
-  if (!deck) return;
-  if (e.key === 'ArrowLeft') mifPrev();
-  if (e.key === 'ArrowRight') mifNext();
-});
-(function() {
-  var startX = 0;
-  var track = document.getElementById('mifTrack');
-  if (!track) return;
-  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
-  track.addEventListener('touchend', function(e) {
-    var dx = e.changedTouches[0].clientX - startX;
-    if (Math.abs(dx) > 40) { dx < 0 ? mifNext() : mifPrev(); }
-  }, {passive:true});
-})();
-
-function toggleMobileNav() {
-  const nav = document.getElementById('navMobile');
-  const btn = document.getElementById('navHamburger');
-  nav.classList.toggle('open');
-  btn.classList.toggle('open');
-}
-function closeMobileNav() {
-  document.getElementById('navMobile').classList.remove('open');
-  document.getElementById('navHamburger').classList.remove('open');
-}
-document.addEventListener('click', function(e) {
-  const nav = document.getElementById('navMobile');
-  const btn = document.getElementById('navHamburger');
-  if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) {
-    closeMobileNav();
-  }
-});
+function toggleMobileNav() { navMobile.classList.toggle('open'); navHamburger.classList.toggle('open'); }
+function closeMobileNav() { navMobile.classList.remove('open'); navHamburger.classList.remove('open'); }
 </script>
 </body>
 </html>

@@ -1,0 +1,292 @@
+/* ===== v2 — refeeel 참조 리디자인 (style.css 위에 덮어쓰기) =====
+   핵심: Pretendard · 블랙/크림 교차 섹션 · 라임 형광펜 · 둥근 카드 · 하단 고정 CTA */
+
+:root {
+  --bg: #0e0e0d;
+  --bg-alt: #181817;
+  --cream: #fafbed;
+  --text: #fafbed;
+  --muted: rgba(250,251,237,0.62);
+  --faint: rgba(250,251,237,0.14);
+  --accent: #dff000;
+  --ink: #111110;
+  --display: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+  --body: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+  --max: 1080px;
+  --dots: radial-gradient(rgba(250,251,237,0.07) 1px, transparent 1px) 0 0 / 22px 22px;
+}
+body { letter-spacing: -0.015em; }
+
+/* 크림 섹션: 변수만 뒤집어 기존 컴포넌트 색을 그대로 반전 */
+.stats-bar, #books, #youtube, #thoughts {
+  --text: #111110;
+  --muted: rgba(17,17,16,0.62);
+  --faint: rgba(17,17,16,0.12);
+  background: var(--cream);
+  color: var(--text);
+}
+#about, #brands, #playground { background: var(--bg) var(--dots); }
+
+/* 형광펜: 다크 섹션은 라임 글자/라임 블록, 크림 섹션은 밑줄 형광펜 */
+mark { background: var(--accent); color: var(--ink); padding: 0 8px; }
+.hl { color: var(--accent); font-weight: 700; }
+.stats-bar mark, #books mark, #youtube mark, #thoughts mark, .stats-bar .hl, #thoughts .hl {
+  background: linear-gradient(transparent 58%, var(--accent) 58%);
+  color: inherit;
+  padding: 0 2px;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: rgba(14,14,13,0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(250,251,237,0.08);
+}
+header .container { max-width: 1240px; width: 100%; }
+.site-name { font-weight: 800; letter-spacing: -0.02em; margin-right: auto; }
+.site-name em { margin-right: 32px; }
+nav { gap: 28px; }
+nav a { font-weight: 600; font-size: 0.88rem; letter-spacing: 0; }
+.nav-cta {
+  background: var(--accent);
+  color: var(--ink) !important;
+  border-radius: 999px;
+  font-weight: 700 !important;
+  padding: 8px 18px;
+}
+.nav-cta:hover { background: #eaff3d !important; }
+
+/* ===== HERO ===== */
+.hero-eyebrow {
+  background: var(--ink);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 6px 14px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+.hero-title .h1-light { font-weight: 500; }
+.hero-title .h1-bold { font-weight: 800; letter-spacing: -0.045em; }
+.hero-title .h1-bold mark { background: none; color: var(--accent); padding: 0; }
+.hero-btn { border-radius: 12px; font-weight: 700; height: 52px; }
+.hero-btn-primary { background: var(--accent); color: var(--ink); }
+.hero-btn-primary:hover { background: #eaff3d; box-shadow: 0 12px 32px -10px rgba(223,240,0,0.5); }
+
+/* ===== STATS → 큰 숫자 카드 ===== */
+.stats-bar { padding: 72px 0; border-bottom: none; }
+.stats-bar .container { flex-wrap: nowrap; gap: 0; align-items: stretch; }
+.divider-dot { display: none; }
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  text-align: center;
+  font-weight: 500;
+  border-left: 1px solid var(--faint);
+}
+.stat:first-child { border-left: none; }
+.stat strong {
+  font-size: clamp(2.4rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: linear-gradient(transparent 60%, var(--accent) 60%);
+  padding: 0 4px;
+}
+.stat strong .ko, .stat strong .en { font-size: 0.4em; font-weight: 700; margin-left: 2px; }
+
+/* ===== SECTION LABEL → 알약 ===== */
+.section-label {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(223,240,0,0.25);
+  color: var(--accent) !important;
+}
+.section-label::after { display: none; }
+
+/* ===== ABOUT ===== */
+#about::before { opacity: 0.04; }
+.about-intro { max-width: 720px; }
+.about-intro h2 { font-weight: 800; letter-spacing: -0.045em; font-size: clamp(2.2rem, 4.6vw, 3.8rem); }
+.chapter-label { color: var(--accent); opacity: 0.9; font-weight: 800; }
+.chapter-row:hover .chapter-label { color: var(--accent); opacity: 1; }
+.chapter-content h3 { font-weight: 800; font-size: 1.8rem; letter-spacing: -0.03em; }
+.chapter-content p { font-size: 1.05rem; }
+.chapter-content p .hl { color: var(--accent); }
+
+/* ===== BOOKS (크림) ===== */
+#books { border-top: none; padding: 96px 0; }
+.book-cover-img { border-radius: 14px; overflow: hidden; box-shadow: 0 24px 48px -24px rgba(0,0,0,0.35); }
+.book-cover-3 { --text: #fafbed; border-radius: 14px; background: var(--ink); }
+.book-info h3 { font-weight: 800; }
+
+/* ===== BRANDS → 카드 ===== */
+#brands { border-top: none; padding: 112px 0; }
+#brands h2, .playground-title, .thoughts-title, .newsletter-inner h2, .mastermind-text h2 {
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+#brands h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-top: 16px; }
+.brand-list { border-top: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.brand-item {
+  border: 1px solid rgba(250,251,237,0.08);
+  border-radius: 20px;
+  background: var(--bg-alt);
+  padding: 20px;
+  grid-template-columns: 96px 1fr;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.brand-item-link:hover { background: var(--bg-alt); border-color: rgba(223,240,0,0.5); transform: translateY(-2px); }
+.brand-item-mif { grid-column: 1 / -1; grid-template-columns: 1fr; }
+.brand-thumb { width: 96px; height: 96px; border-radius: 14px; }
+.brand-name { font-weight: 800; font-size: 1.25rem; }
+.brand-tag {
+  background: var(--accent);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.mif-deck { border-radius: 14px; }
+
+/* ===== MASTERMIND (다크 + 라임 글로) ===== */
+#mastermind { background: var(--bg); }
+#mastermind::before { opacity: 0.18; }
+#mastermind::after {
+  background:
+    radial-gradient(ellipse 40% 50% at 70% 50%, rgba(223,240,0,0.16), transparent 70%),
+    linear-gradient(to bottom, var(--bg) 0%, rgba(0,0,0,0.6) 35%, rgba(0,0,0,0.45) 70%, var(--bg) 100%);
+}
+.mastermind-text h2 { font-size: clamp(2.4rem, 4vw, 3.2rem); margin-top: 16px; }
+.mastermind-text h2 em { background: var(--accent); color: var(--ink); padding: 0 8px; }
+.btn-outline {
+  background: var(--accent);
+  color: var(--ink);
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.btn-outline:hover { background: #eaff3d; color: var(--ink); }
+blockquote {
+  font-family: var(--display);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: rgba(250,251,237,0.06);
+  border: 1px solid rgba(250,251,237,0.12);
+  border-left: 1px solid rgba(250,251,237,0.12);
+  border-radius: 20px;
+  padding: 32px;
+  backdrop-filter: blur(8px);
+}
+
+/* ===== YOUTUBE (크림) ===== */
+#youtube { border-top: none; padding: 96px 0; }
+#youtube .btn-outline { background: var(--ink); color: var(--cream); }
+.youtube-row h3 { font-weight: 800; letter-spacing: -0.03em; }
+.youtube-thumb { border-radius: 20px; overflow: hidden; box-shadow: 0 24px 48px -24px rgba(0,0,0,0.4); }
+
+/* ===== PLAYGROUND → 흰 카드 ===== */
+#playground { border-top: none; padding: 112px 0; }
+.playground-title { margin-top: 16px; }
+.app-card {
+  --text: #111110;
+  --muted: rgba(17,17,16,0.62);
+  --faint: rgba(17,17,16,0.12);
+  background: #fff;
+  color: var(--text);
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.app-card:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -20px rgba(223,240,0,0.35); }
+.app-num { display: inline-block; color: var(--ink); background: var(--accent); border-radius: 999px; padding: 2px 10px; font-weight: 700; letter-spacing: 0.08em; }
+.app-name { font-weight: 800; letter-spacing: -0.03em; }
+.app-link { background: var(--ink); color: var(--cream); border-radius: 999px; padding: 10px 18px; display: inline-block; font-weight: 700; }
+
+/* ===== THOUGHTS (크림) ===== */
+#thoughts { border-top: none; padding: 96px 0; }
+.thoughts-title { margin-top: 16px; }
+.thought-title { font-weight: 800; letter-spacing: -0.03em; }
+
+/* ===== NEWSLETTER (다크 + 라임 글로) ===== */
+#newsletter {
+  border-top: none;
+  padding: 120px 0;
+  background:
+    radial-gradient(ellipse 45% 55% at 50% 50%, rgba(223,240,0,0.14), transparent 70%),
+    var(--bg) var(--dots);
+}
+.sub-counter-num { color: var(--accent); font-weight: 800; }
+.sub-form { gap: 8px; }
+.sub-form input { border-radius: 12px; border-right: 1px solid var(--faint); }
+.sub-form button { background: var(--accent); color: var(--ink); border-radius: 12px; font-weight: 800; }
+.sub-form button:hover { background: #eaff3d; }
+
+/* ===== FOOTER ===== */
+footer { background: #080807; border-top: 1px solid var(--faint); padding-bottom: 120px; }
+.footer-tagline, .footer-email { color: var(--accent); }
+
+/* ===== 하단 고정 CTA ===== */
+.sticky-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  z-index: 90;
+  width: min(720px, calc(100% - 32px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 10px 10px 22px;
+  border-radius: 18px;
+  background: rgba(250,251,237,0.82);
+  color: var(--ink);
+  border: 1px solid rgba(255,255,255,0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 20px 40px -16px rgba(0,0,0,0.45);
+  transform: translate(-50%, 140%);
+  transition: transform 0.4s ease;
+}
+.sticky-cta.show { transform: translate(-50%, 0); }
+.sticky-cta-text strong { display: block; font-weight: 800; font-size: 1rem; letter-spacing: -0.02em; }
+.sticky-cta-text > span { font-size: 0.78rem; color: rgba(17,17,16,0.6); }
+.sticky-cta a {
+  background: var(--accent);
+  color: var(--ink);
+  font-weight: 800;
+  border-radius: 12px;
+  padding: 14px 26px;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  nav { display: none; }
+  .stats-bar .container { flex-wrap: wrap; }
+  .stat { flex: 1 1 50%; border-left: none; padding: 16px 8px; }
+  .brand-list { grid-template-columns: 1fr; }
+  .brand-item { grid-template-columns: 72px 1fr; }
+  .brand-thumb { width: 72px; height: 72px; }
+  .sticky-cta-text > span { display: none; }
+  .sticky-cta-text strong { font-size: 0.92rem; }
+  .sticky-cta a { padding: 12px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sticky-cta { transition: none; }
+}
