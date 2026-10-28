@@ -1,0 +1,115 @@
+/* ===== v4 — 톤(따뜻한 검정·흙·종이) + 스크롤 연출. style.css → v2 → v3 → v4 순서로 덮어쓰기 ===== */
+:root {
+  --bg: #121110;
+  --bg-alt: #1b1917;
+  --cream: #f2ede3;
+  --text: #f2ede3;
+  --muted: rgba(242,237,227,0.62);
+  --faint: rgba(242,237,227,0.14);
+  --ink: #1a1714;
+  --accent: #c68a52;
+  --accent-hi: #d9a06a;
+  --serif: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+  --dots: none;
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
+body { background: var(--bg); }
+/* 흙빛 필름 그레인 — 화면 전체에 얇게 */
+body::before {
+  content: ''; position: fixed; inset: -50%; z-index: 999; pointer-events: none; opacity: .07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+#pain, #topics, #speaking, .stats-bar, #books { --text: #1a1714; --muted: rgba(26,23,20,.64); --faint: rgba(26,23,20,.13); background: var(--cream); }
+#reframe, #proof, #about, #faq, #contact, #mastermind { background-color: var(--bg); background-image: none; }
+#contact { background: radial-gradient(ellipse 50% 60% at 50% 30%, rgba(198,138,82,.16), transparent 70%), var(--bg); }
+footer { background: #0c0b0a; }
+.section-label { background: transparent; border: 1px solid currentColor; color: var(--accent) !important; letter-spacing: .14em; }
+.serif { font-family: var(--serif); font-weight: 900; letter-spacing: -.03em; }
+
+/* ---------- 등장 연출 (JS가 html.motion을 붙일 때만 숨김 → JS 없으면 그냥 보임) ---------- */
+html.motion .rv { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: calc(var(--i, 0) * 110ms); }
+html.motion .rv.in { opacity: 1; transform: none; }
+html.motion .rv-l { transform: translateX(-36px); }
+html.motion .rv-r { transform: translateX(36px); }
+html.motion .rv-l.in, html.motion .rv-r.in { transform: none; }
+
+/* 첫 화면: 단어가 하나씩 떠오름 */
+.hero-title .w { display: inline-block; }
+html.motion .hero-title .w { opacity: 0; transform: translateY(.5em); filter: blur(6px); animation: wIn .9s var(--ease) forwards; animation-delay: calc(.35s + var(--i) * .12s); }
+@keyframes wIn { to { opacity: 1; transform: none; filter: none; } }
+.hero-title, .hero-eyebrow, .hero-subtitle, .hero-cta-row { opacity: 1 !important; transform: none !important; animation-name: none; }
+html.motion .hero-subtitle, html.motion .hero-cta-row { opacity: 0 !important; animation: wIn 1s var(--ease) 1.5s forwards !important; }
+html.motion .hero-cta-row { animation-delay: 1.8s !important; }
+.scroll-cue { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 10; color: rgba(242,237,227,.65); font-size: .72rem; letter-spacing: .3em; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.scroll-cue i { width: 1px; height: 40px; background: linear-gradient(var(--accent), transparent); animation: cue 2s ease-in-out infinite; transform-origin: top; }
+@keyframes cue { 0%,100% { transform: scaleY(.3); opacity: .4 } 50% { transform: scaleY(1); opacity: 1 } }
+
+/* 고민 4개: 왼쪽 제목 고정, 오른쪽 문장이 차례로 */
+.pain-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
+.pain-wrap .pain-head { position: sticky; top: 120px; }
+.pain-list { grid-template-columns: 1fr; margin: 0; }
+.pain-list li { font-size: clamp(1.1rem, 1.8vw, 1.35rem); padding: 34px 0; }
+
+/* ---------- 스크롤 고정 장면 ---------- */
+.pin { position: relative; }
+.pin .stage { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; align-items: center; overflow: hidden; }
+#reframe.pin { height: 260vh; }
+#ice.pin { height: 320vh; }
+
+/* 장면 1: 문장이 단어 단위로 밝아짐 */
+.scrub-text { font-family: var(--serif); font-weight: 900; font-size: clamp(1.9rem, 4.6vw, 3.9rem); line-height: 1.45; letter-spacing: -.035em; max-width: 1000px; }
+.scrub-text .sw { opacity: .14; transition: opacity .25s linear; }
+.scrub-text .sw.hot { color: var(--accent); }
+html:not(.motion) .scrub-text .sw { opacity: 1; }
+
+/* 장면 2: 뿌연 얼음 → 투명한 얼음 */
+#ice .stage { background: #0e0d0c; }
+.ice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; width: 100%; }
+.ice-frame { position: relative; aspect-ratio: 1; border-radius: 24px; overflow: hidden; background: #0b0a09; }
+.ice-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  filter: blur(calc((1 - var(--p, 1)) * 16px)) contrast(calc(.7 + var(--p, 1) * .35)) brightness(calc(.75 + var(--p, 1) * .3)); transform: scale(calc(1.12 - var(--p, 1) * .12)); }
+.ice-frame::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 55%, rgba(235,232,225,.55), rgba(200,196,188,.25) 60%, transparent 80%); opacity: calc((1 - var(--p, 1)) * .9); mix-blend-mode: screen; }
+.ice-meter { position: absolute; left: 20px; right: 20px; bottom: 18px; height: 3px; background: rgba(255,255,255,.15); border-radius: 3px; overflow: hidden; z-index: 2; }
+.ice-meter b { display: block; height: 100%; width: calc(var(--p, 1) * 100%); background: var(--accent); }
+.ice-steps { position: relative; min-height: 300px; }
+.ice-steps .st { position: absolute; inset: 0; opacity: 0; transform: translateY(18px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.ice-steps .st.on { opacity: 1; transform: none; }
+html:not(.motion) .ice-steps .st { position: static; opacity: 1; transform: none; margin-bottom: 28px; }
+.ice-steps small { color: var(--accent); font-weight: 800; letter-spacing: .14em; font-size: .78rem; }
+.ice-steps h3 { font-family: var(--serif); font-weight: 900; font-size: clamp(1.7rem, 3.4vw, 2.7rem); line-height: 1.35; letter-spacing: -.03em; margin: 12px 0 14px; }
+.ice-steps p { color: var(--muted); font-size: 1.05rem; line-height: 1.9; }
+
+/* 파괴자의 순서: 차례로 불이 켜짐 */
+.flow span { background: transparent; color: var(--text); border: 1px solid var(--faint); transition: background .5s var(--ease), color .5s var(--ease), border-color .5s; transition-delay: calc(var(--i, 0) * 260ms); }
+.flow.in span, html:not(.motion) .flow span { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.flow span:last-of-type { transition-delay: calc(var(--i, 0) * 260ms); }
+.flow.in span:last-of-type { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+
+/* 세 번의 삶: 세로 진행선 */
+.chapters { position: relative; border-top: 0; }
+.chapters { padding-left: 28px; }
+.chapters::before { content: ''; position: absolute; left: 0; top: 64px; bottom: 64px; width: 1px; background: var(--faint); }
+.chapters::after { content: ''; position: absolute; left: 0; top: 64px; bottom: 64px; width: 2px; background: var(--accent); transform-origin: top; transform: scaleY(var(--p, 1)); }
+.chapter-row { border-bottom: 0; position: relative; }
+.chapter-label { font-family: var(--serif); }
+.about-intro h2 { font-family: var(--serif); font-weight: 900; }
+
+/* 숫자 */
+.stat .num { font-variant-numeric: tabular-nums; }
+
+/* 마지막 문장 */
+#contact h2 { font-family: var(--serif); font-weight: 900; }
+.end-quote { font-family: var(--serif); font-weight: 900; font-size: clamp(1.6rem, 3.6vw, 2.6rem); line-height: 1.5; text-align: center; letter-spacing: -.03em; padding: 140px 0; }
+.end-quote em { font-style: normal; color: var(--accent); }
+
+@media (max-width: 760px) {
+  .pain-wrap, .ice-grid { grid-template-columns: 1fr; gap: 28px; }
+  .pain-wrap .pain-head { position: static; }
+  .ice-frame { width: 100%; max-width: 74vw; margin: 0 auto; }
+  .ice-steps { min-height: 250px; }
+  #ice .stage { align-items: flex-start; padding-top: 84px; }
+  .chapters { padding-left: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.motion .rv, html.motion .hero-title .w, html.motion .hero-subtitle, html.motion .hero-cta-row { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; transition: none !important; }
+}

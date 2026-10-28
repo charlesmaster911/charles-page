@@ -10,10 +10,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://charles-page.onrender.com" />
   <meta property="og:image" content="https://charles-page.onrender.com/bg-audience.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="style.css?v=24" />
   <link rel="stylesheet" href="style-v2.css?v=1" />
   <link rel="stylesheet" href="style-v3.css?v=1" />
+  <link rel="stylesheet" href="style-v4.css?v=1" />
 </head>
 <body>
 
@@ -40,103 +44,116 @@
   <a href="#contact" onclick="closeMobileNav()" class="nav-mobile-cta">섭외 문의</a>
 </div>
 
-<!-- ① 첫 화면 -->
+<!-- 첫 화면 -->
 <section id="hero">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">마인드 교육 강연 · 찰스 장</p>
     <h1 class="hero-title">
-      <span class="h1-light">교육은 끝났는데,</span>
-      <strong class="h1-bold">왜 사람은 <mark>그대로</mark>일까요?</strong>
+      <span class="h1-light" data-split>교육은 끝났는데,</span>
+      <strong class="h1-bold" data-split>왜 사람은 <mark>그대로</mark>일까요?</strong>
     </h1>
     <p class="hero-subtitle">의지가 약해서가 아닙니다. 새로 배운 것이 옛 패러다임 위에 쌓였을 뿐입니다.<br>재정 전문가, 선교사, 창업가 — 세 번의 삶에서 직접 부수고 다시 세운 순서를 나눕니다.</p>
     <div class="hero-cta-row">
       <a href="#contact" class="hero-btn hero-btn-primary">강연 섭외 문의 <span class="hero-btn-arrow">→</span></a>
-      <a href="#topics" class="hero-btn hero-btn-secondary">강연 주제 보기</a>
+      <a href="#pain" class="hero-btn hero-btn-secondary">왜 그런지 보기</a>
     </div>
   </div>
+  <div class="scroll-cue" aria-hidden="true">SCROLL<i></i></div>
 </section>
 
-<!-- 숫자 띠 -->
-<div class="stats-bar">
+<!-- 숫자 -->
+<div class="stats-bar count-wrap">
   <div class="container">
-    <div class="stat"><span class="num">100억<small>+</small></span> 누적 매출 (2016~2026.10)</div>
-    <div class="stat"><span class="num">20만<small>개+</small></span> 쥬얼아이스 판매</div>
-    <div class="stat"><span class="num">14억</span> 와디즈 누적 펀딩</div>
-    <div class="stat"><span class="num">1,500<small>명</small></span> 한 번의 강연 청중</div>
+    <div class="stat rv" style="--i:0"><span class="num"><span data-to="100">100</span>억<small>+</small></span> 누적 매출 (2016~2026.10)</div>
+    <div class="stat rv" style="--i:1"><span class="num"><span data-to="20">20</span>만<small>개+</small></span> 쥬얼아이스 판매</div>
+    <div class="stat rv" style="--i:2"><span class="num"><span data-to="14">14</span>억</span> 와디즈 누적 펀딩</div>
+    <div class="stat rv" style="--i:3"><span class="num"><span data-to="1500">1,500</span><small>명</small></span> 한 번의 강연 청중</div>
   </div>
 </div>
 
-<!-- ② 고민 -->
+<!-- 고민 -->
 <section id="pain" class="sec">
-  <div class="container">
-    <p class="section-label">이런 장면, 익숙하시죠?</p>
-    <h2>배운 건 많은데,<br><mark>달라진 건 없습니다.</mark></h2>
+  <div class="container pain-wrap">
+    <div class="pain-head">
+      <p class="section-label rv">이런 장면, 익숙하시죠?</p>
+      <h2 class="rv" style="--i:1">배운 건 많은데,<br><mark>달라진 건 없습니다.</mark></h2>
+    </div>
     <ul class="pain-list">
-      <li><b>01</b>교육 날엔 모두 고개를 끄덕였는데, 일주일 뒤엔 원래 방식으로 일합니다.</li>
-      <li><b>02</b>좋은 책과 강의를 수십 개 들었지만, 아는 것과 사는 것이 다릅니다.</li>
-      <li><b>03</b>새해마다 계획을 바꾸는데, 연말엔 같은 자리에 서 있습니다.</li>
-      <li><b>04</b>동기부여는 사흘 갑니다. 그다음엔 원래대로 돌아갑니다.</li>
+      <li class="rv"><b>01</b>교육 날엔 모두 고개를 끄덕였는데, 일주일 뒤엔 원래 방식으로 일합니다.</li>
+      <li class="rv"><b>02</b>좋은 책과 강의를 수십 개 들었지만, 아는 것과 사는 것이 다릅니다.</li>
+      <li class="rv"><b>03</b>새해마다 계획을 바꾸는데, 연말엔 같은 자리에 서 있습니다.</li>
+      <li class="rv"><b>04</b>동기부여는 사흘 갑니다. 그다음엔 원래대로 돌아갑니다.</li>
     </ul>
   </div>
 </section>
 
-<!-- ③ 원인 다시 보기 -->
-<section id="reframe" class="sec">
-  <div class="container reframe-grid">
-    <div>
-      <p class="section-label">계획이 아니라 기둥</p>
-      <h2>리모델링은<br><mark>새 집이 아닙니다.</mark></h2>
-      <p>벽지를 바꾸고 가구를 바꿔도 기둥이 같으면 같은 집입니다. 새 계획, 새 습관, 새 목표를 올려도 "이렇게 살아야 안전하다"는 <b>내가 세운 적 없는 기둥</b>이 그대로면 같은 자리로 돌아옵니다. 그 기둥을 <b>패러다임</b>이라고 부릅니다.</p>
-      <p>저는 10년 동안 투명한 얼음을 만들었습니다. 물을 급하게 얼리면 불순물이 안에 갇혀 뿌예집니다. 한 방향으로 천천히 얼려야 불순물이 <b>밖으로 밀려나며</b> 투명해집니다.</p>
-      <p>사람의 변화도 같습니다. 빼는 게 아니라, 순서대로 밀어내는 것입니다.</p>
+<!-- 고정 장면 1: 문장이 밝아짐 -->
+<section id="reframe" class="pin">
+  <div class="stage">
+    <div class="container">
+      <p class="section-label">리모델링은 새 집이 아닙니다</p>
+      <p class="scrub-text">벽지를 바꾸고 가구를 바꿔도 기둥이 같으면 같은 집입니다. 새 계획을 올려도 내가 세운 적 없는 기둥이 그대로면 같은 자리로 돌아옵니다. 그 기둥을 <b>패러다임이라고</b> 부릅니다.</p>
     </div>
-    <figure class="ice-card">
-      <img src="https://jewelice.kr/web/product/medium/202602/6874f582c3a5e30a1131f2cf47c919e6.jpg" alt="쥬얼아이스 투명얼음" />
-      <figcaption>쥬얼아이스 — 10년째 만들고 있는 투명얼음</figcaption>
-    </figure>
   </div>
 </section>
 
-<!-- ④ 강연 주제 -->
+<!-- 고정 장면 2: 뿌연 얼음 → 투명한 얼음 -->
+<section id="ice" class="pin">
+  <div class="stage">
+    <div class="container ice-grid">
+      <div class="ice-frame">
+        <img src="https://jewelice.kr/web/product/medium/202602/6874f582c3a5e30a1131f2cf47c919e6.jpg" alt="쥬얼아이스 투명얼음" />
+        <div class="ice-meter"><b></b></div>
+      </div>
+      <div class="ice-steps">
+        <div class="st on"><small>01 · 급하게 얼리면</small><h3>불순물이 안에 갇혀,<br>뿌예집니다.</h3><p>서둘러 바꾸려 할수록, 옛 생각은 그대로 안에 남습니다.</p></div>
+        <div class="st"><small>02 · 한 방향으로, 천천히</small><h3>불순물이<br>밖으로 밀려납니다.</h3><p>빼려고 애쓰지 않아도, 순서대로 얼리면 밀려나는 것이 있습니다.</p></div>
+        <div class="st"><small>03 · 사람도 같습니다</small><h3>빼는 게 아니라,<br>순서대로 밀어내는 것.</h3><p>10년 동안 투명한 얼음을 만들며, 저는 이 원리를 사람에게서 다시 봤습니다.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 강연 주제 -->
 <section id="topics" class="sec">
   <div class="container">
-    <p class="section-label">강연 주제</p>
-    <h2>바뀌지 않는 이유부터<br>다시 봅니다.</h2>
+    <p class="section-label rv">강연 주제</p>
+    <h2 class="rv" style="--i:1">바뀌지 않는 이유부터<br>다시 봅니다.</h2>
     <div class="topic-grid">
-      <article class="topic"><span class="no">01</span><h3>왜 나는<br>바뀌지 않는가</h3><p>교육을 받아도 바뀌지 못하는 이유. "아는 것이 사는 것을 대신할 때" 일어나는 일.</p></article>
-      <article class="topic"><span class="no">02</span><h3>패러다임이란<br>무엇인가</h3><p>내 안의 보이지 않는 설계도. 나와 패러다임의 싸움 — 왜 결심은 지고 습관은 이기는가.</p></article>
-      <article class="topic"><span class="no">03</span><h3>성장할 때, 안에서<br>진짜 일어나는 일</h3><p>두려움의 벽 앞에서 멈추는 이유와, 그 벽을 넘는 순서.</p></article>
+      <article class="topic rv" style="--i:0"><span class="no">01</span><h3>왜 나는<br>바뀌지 않는가</h3><p>교육을 받아도 바뀌지 못하는 이유. "아는 것이 사는 것을 대신할 때" 일어나는 일.</p></article>
+      <article class="topic rv" style="--i:1"><span class="no">02</span><h3>패러다임이란<br>무엇인가</h3><p>내 안의 보이지 않는 설계도. 나와 패러다임의 싸움 — 왜 결심은 지고 습관은 이기는가.</p></article>
+      <article class="topic rv" style="--i:2"><span class="no">03</span><h3>성장할 때, 안에서<br>진짜 일어나는 일</h3><p>두려움의 벽 앞에서 멈추는 이유와, 그 벽을 넘는 순서.</p></article>
     </div>
-    <div class="flow"><span>뽑다</span><i>→</i><span>허물다</span><i>→</i><span>갈다</span><i>→</i><span>심다</span><i>→</i><span>세우다</span></div>
-    <p class="flow-note">새로 심기 전에, 묵은 땅부터 갈아엎는 순서. 세 주제는 한 강연 안에서 이어서도 다룹니다.</p>
+    <div class="flow"><span style="--i:0">뽑다</span><i>→</i><span style="--i:1">허물다</span><i>→</i><span style="--i:2">갈다</span><i>→</i><span style="--i:3">심다</span><i>→</i><span style="--i:4">세우다</span></div>
+    <p class="flow-note rv">새로 심기 전에, 묵은 땅부터 갈아엎는 순서. 세 주제는 한 강연 안에서 이어서도 다룹니다.</p>
   </div>
 </section>
 
-<!-- ⑤ 세 번의 삶 -->
+<!-- 세 번의 삶 -->
 <section id="about">
   <div class="container">
     <div class="about-intro">
-      <p class="section-label">왜 찰스 장인가</p>
-      <h2>세 번 무너지고,<br><mark>세 번 다시 지은</mark> 사람</h2>
+      <p class="section-label rv">왜 찰스 장인가</p>
+      <h2 class="rv" style="--i:1">세 번 무너지고,<br><mark>세 번 다시 지은</mark> 사람</h2>
     </div>
     <div class="chapters">
-      <div class="chapter-row">
+      <div class="chapter-row rv">
         <div class="chapter-label">01</div>
         <div class="chapter-content">
           <h3>미국의 재정 전문가</h3>
           <p>금융회사 부사장까지 올라 성공했습니다.<br>그런데 그때 저는 108kg에 매일 술을 마셨습니다.<br><span class="hl">겉은 성공했는데, 내가 누군지 몰랐습니다.</span></p>
         </div>
       </div>
-      <div class="chapter-row">
+      <div class="chapter-row rv">
         <div class="chapter-label">02</div>
         <div class="chapter-content">
           <h3>선교사</h3>
           <p>2008년 금융위기 뒤 한국으로 돌아와, 8년 동안 선교사로<br>동남아와 아프리카의 가장 낮은 곳을 걸었습니다.<br>인도 오지의 한여름 텐트에서 1,500명이 세 시간 넘게 강의를 듣던 날,<br><span class="hl">사람의 삶이 바뀌는 순간</span>을 처음 봤습니다.</p>
         </div>
       </div>
-      <div class="chapter-row">
+      <div class="chapter-row rv">
         <div class="chapter-label">03</div>
         <div class="chapter-content">
           <h3>창업가</h3>
@@ -145,44 +162,44 @@
       </div>
     </div>
 
-    <div class="applied" id="brands">
+    <div class="applied rv" id="brands">
       <h3>배운 이론을, 제 사업에 먼저 써 봤습니다.</h3>
       <p>막상 사업을 해 보니 머리로 아는 것만으로는 안 되는 이유가 보였습니다. 생각지 못한 세금 문제, 사람 문제, 주변의 수많은 변수. 그 이론을 제 회사와 컨설팅 현장에 직접 적용하며 부딪히고 다듬었습니다. 그래서 제 강연은 <b>현실에서 한 번 깨져 본 이론</b>입니다.</p>
       <div class="process"><span>제품 기획</span><span>금형</span><span>공장</span><span>해외 발주</span><span>수입·수출</span><span>판매</span></div>
       <div class="brand-mini">
-        <div><img src="https://jewelice.kr/web/product/medium/202602/6874f582c3a5e30a1131f2cf47c919e6.jpg" alt="쥬얼아이스" /><b>쥬얼아이스</b><small>투명얼음</small></div>
-        <div><img src="https://jewelice.kr/web/product/medium/202602/96c95255e3a9e6d49e6d9798d3b90ed1.jpg" alt="아블러" /><b>아블러</b><small>홈바·제빙</small></div>
-        <div><img src="https://jewelice.kr/web/product/medium/202602/7cce638ba474c45755fac89ca0a4b9bc.jpg" alt="아블러제로" /><b>아블러제로</b><small>주방용품</small></div>
-        <div><img src="naengmyeon.jpg" alt="한반도랭면" /><b>한반도 키친</b><small>간편식 평양냉면</small></div>
-        <div><div class="ph">오미엘</div><b>오미엘</b><small>퍼스널 가구·홈케어</small></div>
+        <div class="rv" style="--i:0"><img src="https://jewelice.kr/web/product/medium/202602/6874f582c3a5e30a1131f2cf47c919e6.jpg" alt="쥬얼아이스" /><b>쥬얼아이스</b><small>투명얼음</small></div>
+        <div class="rv" style="--i:1"><img src="https://jewelice.kr/web/product/medium/202602/96c95255e3a9e6d49e6d9798d3b90ed1.jpg" alt="아블러" /><b>아블러</b><small>홈바·제빙</small></div>
+        <div class="rv" style="--i:2"><img src="https://jewelice.kr/web/product/medium/202602/7cce638ba474c45755fac89ca0a4b9bc.jpg" alt="아블러제로" /><b>아블러제로</b><small>주방용품</small></div>
+        <div class="rv" style="--i:3"><img src="naengmyeon.jpg" alt="한반도랭면" /><b>한반도 키친</b><small>간편식 평양냉면</small></div>
+        <div class="rv" style="--i:4"><div class="ph">오미엘</div><b>오미엘</b><small>퍼스널 가구·홈케어</small></div>
       </div>
       <p style="margin-top:20px">와디즈·킥스타터·마쿠아케로 국내외 펀딩, 해외에서만 25만 달러. 한반도랭면은 2018년 와디즈 오픈 15분 만에 목표 300%를 넘겼습니다.<br>마인드 교육을 하는 사람 중 <b>공장 바닥과 세금 고지서를 아는 사람</b>은 많지 않습니다.</p>
     </div>
   </div>
 </section>
 
-<!-- ⑦ 강연 이력 · 진행 -->
+<!-- 강연 이력 -->
 <section id="speaking" class="sec">
   <div class="container">
-    <p class="section-label">강연 이력</p>
-    <h2>현장에서 계속<br><mark>말해 왔습니다.</mark></h2>
+    <p class="section-label rv">강연 이력</p>
+    <h2 class="rv" style="--i:1">현장에서 계속<br><mark>말해 왔습니다.</mark></h2>
     <div class="speak-grid">
       <div>
-        <figure class="speak-photo"><img src="bg-stage.jpg" alt="국회의원회관 출판기념회 무대에서 강연하는 찰스 장" /><figcaption>2023.6.18 국회의원회관 · 100인 100권 출판 프로젝트 출판기념회</figcaption></figure>
-        <figure class="speak-photo"><img src="bg-audience.jpg" alt="출판기념회 청중 앞의 찰스 장" /></figure>
+        <figure class="speak-photo rv rv-l"><img src="bg-stage.jpg" alt="국회의원회관 출판기념회 무대에서 강연하는 찰스 장" /><figcaption>2023.6.18 국회의원회관 · 100인 100권 출판 프로젝트 출판기념회</figcaption></figure>
+        <figure class="speak-photo rv rv-l"><img src="bg-audience.jpg" alt="출판기념회 청중 앞의 찰스 장" /></figure>
       </div>
       <div>
         <ul class="venue">
-          <li><b>창업진흥원</b><span>2021 실전창업교육 — 스타트업 마케팅 전략 · 크라우드펀딩의 이해와 실습</span></li>
-          <li><b>인사이트플랫폼</b><span>HMR 유통마케팅 과정 2기·3기 (2021)</span></li>
-          <li><b>서울먹거리창업센터</b><span>강의·멘토링 (2021)</span></li>
-          <li><b>푸드테크 창업자 특강</b><span>2021</span></li>
-          <li><b>경희대학교</b><span>창업 강연 「최고의 나는 이미 내 안에 잠자고 있다」 (2023)</span></li>
-          <li><b>인도 ILO 팀</b><span>영어 강연 (2023)</span></li>
-          <li><b>와디즈</b><span>크라우드펀딩 강연</span></li>
-          <li><b>인도 오지 텐트 강연</b><span>청중 1,500명</span></li>
+          <li class="rv" style="--i:0"><b>창업진흥원</b><span>2021 실전창업교육 — 스타트업 마케팅 전략 · 크라우드펀딩의 이해와 실습</span></li>
+          <li class="rv" style="--i:1"><b>인사이트플랫폼</b><span>HMR 유통마케팅 과정 2기·3기 (2021)</span></li>
+          <li class="rv" style="--i:2"><b>서울먹거리창업센터</b><span>강의·멘토링 (2021)</span></li>
+          <li class="rv" style="--i:3"><b>푸드테크 창업자 특강</b><span>2021</span></li>
+          <li class="rv" style="--i:4"><b>경희대학교</b><span>창업 강연 「최고의 나는 이미 내 안에 잠자고 있다」 (2023)</span></li>
+          <li class="rv" style="--i:5"><b>인도 ILO 팀</b><span>영어 강연 (2023)</span></li>
+          <li class="rv" style="--i:6"><b>와디즈</b><span>크라우드펀딩 강연</span></li>
+          <li class="rv" style="--i:7"><b>인도 오지 텐트 강연</b><span>청중 1,500명</span></li>
         </ul>
-        <table class="spec">
+        <table class="spec rv">
           <tr><th>시간</th><td>1시간 기본 강연부터 2~3시간 심화 과정까지 (최대 4시간)</td></tr>
           <tr><th>방식</th><td>오프라인 · 온라인 모두 가능 · <b>영어 강연 가능</b></td></tr>
           <tr><th>대상</th><td>기업 임직원 · 창업가·소상공인 교육 · 지자체·공공기관 · 대학</td></tr>
@@ -193,12 +210,12 @@
   </div>
 </section>
 
-<!-- ⑧ FAQ -->
-<section id="faq" class="sec" style="background:var(--bg)">
+<!-- FAQ -->
+<section id="faq" class="sec">
   <div class="container">
-    <p class="section-label">자주 묻는 것</p>
-    <h2>섭외 전에<br>많이 물으시는 것</h2>
-    <div class="faq">
+    <p class="section-label rv">자주 묻는 것</p>
+    <h2 class="rv" style="--i:1">섭외 전에<br>많이 물으시는 것</h2>
+    <div class="faq rv" style="--i:2">
       <details open><summary>종교 강연인가요?</summary><p>아닙니다. 선교사로 일한 시간은 제 이야기의 일부이고, 강연은 누구나 들을 수 있는 마인드 교육입니다.</p></details>
       <details><summary>비용은 어떻게 되나요?</summary><p>대상·인원·시간·지역에 따라 다릅니다. 문의 주시면 구성안과 함께 안내드립니다.</p></details>
       <details><summary>온라인이나 영어로도 되나요?</summary><p>네, 둘 다 가능합니다. 미국에서 18년을 살았습니다.</p></details>
@@ -207,12 +224,12 @@
   </div>
 </section>
 
-<!-- ⑩ 쓰는 사람 -->
+<!-- 쓰는 사람 -->
 <section id="books" class="sec">
   <div class="container">
-    <p class="section-label">쓰는 사람</p>
+    <p class="section-label rv">쓰는 사람</p>
     <div class="books-row">
-      <div class="book writing">
+      <div class="book writing rv" style="--i:0">
         <div class="book-cover book-cover-3"><div class="cover-body cover-body-writing">
           <span class="cover-writing-label">집필 중</span>
           <p class="cover-title">투명해지는 법</p>
@@ -220,11 +237,11 @@
         </div></div>
         <div class="book-info"><h3>「투명해지는 법」</h3><p>잠재의식을 깨워 나를 쓰는 법 · 집필 중</p></div>
       </div>
-      <div class="book">
+      <div class="book rv" style="--i:1">
         <a class="book-cover book-cover-img book-link" href="https://product.kyobobook.co.kr/detail/S000202293986" target="_blank" rel="noopener"><img src="https://image.yes24.com/goods/118955277/XL" alt="잠자는 슈퍼맨을 깨워라" /></a>
         <div class="book-info"><h3>2023년, AI로 먼저 써 본 책</h3><p>《잠자는 슈퍼맨을 깨워라》 — 챗GPT가 막 나왔을 때 직접 만들어 본 실험</p></div>
       </div>
-      <div class="book">
+      <div class="book rv" style="--i:2">
         <a class="book-cover book-cover-img book-link" href="https://product.kyobobook.co.kr/detail/S000202610449" target="_blank" rel="noopener"><img src="https://image.yes24.com/goods/119266727/XL" alt="창업전에 0에서 10억까지" /></a>
         <div class="book-info"><h3>같은 해, 두 번째 실험</h3><p>《창업전에 0에서 10억까지》 — 새 도구 앞에서 먼저 해 보는 사람</p></div>
       </div>
@@ -232,27 +249,29 @@
   </div>
 </section>
 
-<!-- ⑪ 결 -->
+<!-- 결 -->
 <section id="mastermind">
   <div class="container">
     <div class="mastermind-inner">
-      <div class="mastermind-text">
+      <div class="mastermind-text rv">
         <p class="section-label">함께하는 모임</p>
         <h2>마스터마인드<br><em>"결"</em></h2>
         <p>각 분야에서 자기 길을 가는 사람들이<br>한 달에 한 번, 열 명 이하로 모입니다. 초대제로 운영합니다.</p>
         <a href="#" class="btn-outline" onclick="openMembershipModal(event)">결 알아보기 →</a>
       </div>
-      <div class="mastermind-quote"><blockquote>"혼자 가면 빠르고,<br>함께 가면 멀리 간다."</blockquote></div>
+      <div class="mastermind-quote rv" style="--i:1"><blockquote>"혼자 가면 빠르고,<br>함께 가면 멀리 간다."</blockquote></div>
     </div>
   </div>
 </section>
 
-<!-- ⑫ 섭외 문의 -->
+<div class="container"><p class="end-quote rv">부수는 건 목적이 아닙니다. 땅 고르기입니다.<br><em>파괴자의 마지막 이름은 건축자입니다.</em></p></div>
+
+<!-- 섭외 문의 -->
 <section id="contact" class="sec">
   <div class="container">
     <p class="section-label" style="display:table;margin:0 auto">섭외 문의</p>
-    <h2>바뀌지 않는 이유부터<br>다시 보는 한 시간.</h2>
-    <p class="lead" style="color:var(--muted)">기관·일정·인원을 남겨 주시면 짧은 통화로 대상과 목표를 확인한 뒤 구성안을 보내드립니다.</p>
+    <h2 class="rv">바뀌지 않는 이유부터<br>다시 보는 한 시간.</h2>
+    <p class="lead rv" style="color:var(--muted)">기관·일정·인원을 남겨 주시면 짧은 통화로 대상과 목표를 확인한 뒤 구성안을 보내드립니다.</p>
     <form class="inq" onsubmit="handleSpeakingInquiry(event)">
       <label>기관·회사명<input name="org" required /></label>
       <label>담당자 이름<input name="name" required /></label>
@@ -308,7 +327,7 @@
   </div>
 </footer>
 
-<!-- 결 멤버십 모달 (기존 유지) -->
+<!-- 결 멤버십 모달 -->
 <div id="membershipModal" class="modal-overlay" onclick="closeMembershipModal(event)">
   <div class="modal-box">
     <button class="modal-close" onclick="closeMembershipModal()">&times;</button>
@@ -334,6 +353,7 @@
 </div>
 <script>addEventListener('scroll',()=>stickyCta.classList.toggle('show',scrollY>innerHeight*0.8&&contact.getBoundingClientRect().top>innerHeight),{passive:true})</script>
 <script src="script.js?v=11"></script>
+<script src="motion.js?v=1"></script>
 <script>
 // ponytail: 시트 연동 Apps Script 배포가 404(2026-10-28 확인)라 메일 앱으로 보낸다. 새 배포가 생기면 SHEET_URL 전송으로 되돌림.
 var INQUIRY_EMAIL = 'charles@jewelice.kr';
