@@ -270,7 +270,7 @@
       <label class="full">요청 사항<textarea name="note" rows="4" placeholder="강연 목적, 시간(1~4시간), 온라인·영어 여부 등"></textarea></label>
       <button type="submit">섭외 문의 보내기</button>
     </form>
-    <p class="inq-note">이메일로도 받습니다 · <a href="mailto:charles@jewelice.kr">charles@jewelice.kr</a> · 남겨 주신 정보는 섭외 회신 목적으로만 씁니다.</p>
+    <p class="inq-note">보내기를 누르면 내용이 채워진 메일 창이 열립니다 · 직접 보내셔도 됩니다: <a href="mailto:charles@jewelice.kr">charles@jewelice.kr</a> · 남겨 주신 정보는 섭외 회신 목적으로만 씁니다.</p>
   </div>
 </section>
 
@@ -335,20 +335,25 @@
 <script>addEventListener('scroll',()=>stickyCta.classList.toggle('show',scrollY>innerHeight*0.8&&contact.getBoundingClientRect().top>innerHeight),{passive:true})</script>
 <script src="script.js?v=11"></script>
 <script>
+// ponytail: 시트 연동 Apps Script 배포가 404(2026-10-28 확인)라 메일 앱으로 보낸다. 새 배포가 생기면 SHEET_URL 전송으로 되돌림.
+var INQUIRY_EMAIL = 'charles@jewelice.kr';
+function openMail(subject, lines) {
+  location.href = 'mailto:' + INQUIRY_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+}
 function handleSpeakingInquiry(e) {
   e.preventDefault();
-  var f = e.target, btn = f.querySelector('button[type="submit"]');
-  var d = new FormData(f);
-  var params = new URLSearchParams({
-    type: 'speaking', org: d.get('org'), name: d.get('name'), contact: d.get('contact'),
-    when: d.get('when') || '', size: d.get('size') || '', audience: d.get('audience'),
-    topic: d.getAll('topic').join(', '), note: d.get('note') || '', date: new Date().toLocaleString('ko-KR')
-  });
-  btn.textContent = '전송 중...'; btn.disabled = true;
-  var done = function () { btn.textContent = '접수됐습니다 ✓ 곧 연락드리겠습니다'; btn.style.background = '#2d9e6b'; };
-  // 미리보기(file://)에서는 실제 시트로 보내지 않는다
-  if (location.protocol === 'file:' || !SHEET_URL) return done();
-  fetch(SHEET_URL + '?' + params.toString(), { mode: 'no-cors' }).finally(done);
+  var f = e.target, btn = f.querySelector('button[type="submit"]'), d = new FormData(f);
+  openMail('[강연 섭외 문의] ' + d.get('org'), [
+    '기관·회사명: ' + d.get('org'), '담당자: ' + d.get('name'), '연락처: ' + d.get('contact'),
+    '희망 일정: ' + (d.get('when') || '-'), '예상 인원: ' + (d.get('size') || '-'), '대상: ' + d.get('audience'),
+    '관심 주제: ' + (d.getAll('topic').join(', ') || '-'), '', '요청 사항:', d.get('note') || '-'
+  ]);
+  btn.textContent = '메일 창이 열렸습니다 — 보내기를 눌러 주세요';
+}
+function handleMembershipApply(e) {
+  e.preventDefault();
+  openMail('[결 멤버십 신청] ' + memberName.value, ['이름: ' + memberName.value, '이메일: ' + memberEmail.value]);
+  e.target.querySelector('.modal-submit').textContent = '메일 창이 열렸습니다 — 보내기를 눌러 주세요';
 }
 function toggleMobileNav() { navMobile.classList.toggle('open'); navHamburger.classList.toggle('open'); }
 function closeMobileNav() { navMobile.classList.remove('open'); navHamburger.classList.remove('open'); }
